@@ -1,0 +1,57 @@
+/* Styles for HighlightsAndNews */
+
+@keyframes scroll {
+  0% {
+    transform: translateY(100%);
+  }
+  100% {
+    transform: translateY(0%);
+  }
+}
+
+.news-container {
+  position: relative;
+  height: 725px;
+  overflow: hidden;
+}
+
+.news-items {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  animation: scroll 40s linear infinite; /* Slower default speed */
+  animation-fill-mode: both;
+  animation-play-state: running;
+}
+
+.news-items:hover {
+  animation-play-state: paused; /* Pause the animation on hover instead of changing speed */
+}
+
+/* Clickable news item styling */
+.news-items a {
+  text-decoration: none;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.news-items a:after {
+  content: "→";
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  opacity: 0;
+  font-size: 16px;
+  color: #3b82f6;
+  transform: translateX(-5px);
+  transition: all 0.3s ease;
+}
+
+.news-items a:hover:after {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.news-items a:hover {
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.15);
+}
