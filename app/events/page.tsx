@@ -7,53 +7,83 @@ import { Calendar, Clock, MapPin, Users, ExternalLink, ArrowRight } from "lucide
 import Link from "next/link"
 
 const upcomingEvents = [
-  {
-    id: 1,
-    title: "Introduction to TensorFlow 2.0",
-    description:
-      "A beginner-friendly workshop covering the basics of TensorFlow 2.0, including tensors, operations, and building your first neural network.",
-    date: "2024-02-15",
-    time: "2:00 PM - 5:00 PM",
-    location: "IIT Lucknow Campus",
-    attendees: 45,
-    maxAttendees: 60,
-    type: "Workshop",
-    level: "Beginner",
-    status: "upcoming",
-  },
+  // { 
+  //   id: 1,
+  //   title: "AI Day",
+  //   description:
+  //     "A beginner-friendly event focused on AI, featuring sessions for all levels and hands-on offline experiences.",
+  //   date: "",
+  //   time: "TBA",
+  //   location: "TBA",
+  //   attendees: 0,
+  //   // maxAttendees: 0,
+  //   type: "Offline",
+  //   level: "Sessions",
+  //   tags: [ "All Levels"],
+  //   registrationLink: "",
+  //   status: "upcoming",
+  // },
   {
     id: 2,
-    title: "Computer Vision with OpenCV and TensorFlow",
+    title: "ML Fundamentals and hands-on ML Projects & Application",
     description:
       "Hands-on session on building computer vision applications using OpenCV and TensorFlow for image processing and object detection.",
-    date: "2024-02-28",
-    time: "10:00 AM - 4:00 PM",
-    location: "IIIT Lucknow",
-    attendees: 32,
-    maxAttendees: 40,
-    type: "Workshop",
+    date: "TBA",
+    time: "TBA",
+    location: "TBA",
+    attendees: 0,
+    // maxAttendees: 0,
+    type: "Offline",
     level: "Intermediate",
     status: "upcoming",
   },
   {
     id: 3,
-    title: "AI in Healthcare: Real-world Applications",
+    title: "DL Fundamentals and hands-on DL Projects & Application",
     description:
       "Expert talk on how AI and ML are revolutionizing healthcare, featuring case studies and practical implementations.",
-    date: "2024-03-10",
-    time: "6:00 PM - 8:00 PM",
-    location: "Online Event",
-    attendees: 120,
-    maxAttendees: 200,
+    date: "TBA",
+    time: "TBA",
+    location: "TBA",
+    attendees: 0, 
+    // maxAttendees: 200,
+    type: "Offline",
+    level: "All Levels",
+    status: "upcoming",
+  },
+  {
+    id: 4,
+    title: "The ART of asking AI - Prompt Engineering for everyone",
+    description:
+      "Expert talk on how AI and ML are revolutionizing healthcare, featuring case studies and practical implementations.",
+    date: "TBA",
+    time: "TBA",
+    location: "TBA",
+    attendees: 0,
+    // maxAttendees: 200,
     type: "Talk",
     level: "All Levels",
     status: "upcoming",
   },
+  // {
+  //   id: 5,
+  //   title: "AI in Healthcare: Real-world Applications",
+  //   description:
+  //     "Expert talk on how AI and ML are revolutionizing healthcare, featuring case studies and practical implementations.",
+  //   date: "2024-03-10",
+  //   time: "6:00 PM - 8:00 PM",
+  //   location: "Online Event",
+  //   attendees: 120,
+  //   maxAttendees: 200,
+  //   type: "Talk",
+  //   level: "All Levels",
+  //   status: "upcoming",
+  // },
 ]
 
 const pastEvents = [
   {
-    id: 4,
+    id: 1,
     title: "Deep Learning Fundamentals",
     description:
       "Comprehensive introduction to deep learning concepts, neural networks, and practical implementation using TensorFlow.",
@@ -66,7 +96,7 @@ const pastEvents = [
     status: "completed",
   },
   {
-    id: 5,
+    id: 2,
     title: "Natural Language Processing with Transformers",
     description:
       "Advanced workshop on NLP techniques, transformer models, and building chatbots using modern ML frameworks.",
@@ -79,7 +109,7 @@ const pastEvents = [
     status: "completed",
   },
   {
-    id: 6,
+    id: 3,
     title: "AI Community Lucknow Inaugural Meetup",
     description: "Our first community meetup introducing AI Community Lucknow, networking session, and roadmap discussion.",
     date: "2023-12-15",
@@ -101,6 +131,10 @@ function EventCard({ event, isPast = false }: { event: any; isPast?: boolean }) 
         return "bg-secondary/10 text-secondary"
       case "Meetup":
         return "bg-accent/10 text-accent-foreground"
+      case "Offline":
+        return "bg-primary/10 text-primary"
+      case "Sessions":
+        return "bg-purple-100 text-purple-800 dark:bg-purple-900/20 dark:text-purple-400"
       default:
         return "bg-muted/10 text-muted-foreground"
     }
@@ -114,6 +148,8 @@ function EventCard({ event, isPast = false }: { event: any; isPast?: boolean }) 
         return "bg-yellow-100 text-yellow-800 dark:bg-yellow-900/20 dark:text-yellow-400"
       case "Advanced":
         return "bg-red-100 text-red-800 dark:bg-red-900/20 dark:text-red-400"
+      case "Sessions":
+        return "bg-blue-100 text-blue-800 dark:bg-blue-900/20 dark:text-blue-400"
       default:
         return "bg-blue-100 text-blue-800 dark:bg-blue-900/20 dark:text-blue-400"
     }
@@ -129,6 +165,9 @@ function EventCard({ event, isPast = false }: { event: any; isPast?: boolean }) 
               <Badge variant="outline" className={getLevelColor(event.level)}>
                 {event.level}
               </Badge>
+              {event.tags && event.tags.map((tag: string) => (
+                <Badge key={tag} variant="secondary" className="ml-1">{tag}</Badge>
+              ))}
             </div>
             <CardTitle className="text-xl">{event.title}</CardTitle>
           </div>
@@ -166,10 +205,28 @@ function EventCard({ event, isPast = false }: { event: any; isPast?: boolean }) 
         </div>
         {!isPast && (
           <div className="mt-6">
-            <Button className="w-full">
-              Register Now
-              <ArrowRight className="ml-2 h-4 w-4" />
-            </Button>
+            {event.status === "upcoming" ? (
+              <Button className="w-full" disabled>
+                Coming Soon..
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </Button>
+            ) : (
+              event.registrationLink ? (
+                <Link href={event.registrationLink} passHref legacyBehavior>
+                  <a style={{ display: 'block' }}>
+                    <Button className="w-full">
+                      Register Now
+                      <ArrowRight className="ml-2 h-4 w-4" />
+                    </Button>
+                  </a>
+                </Link>
+              ) : (
+                <Button className="w-full" disabled>
+                  Registration Closed
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </Button>
+              )
+            )}
           </div>
         )}
       </CardContent>
@@ -311,14 +368,14 @@ export default function EventsPage() {
               Follow us on social media and join our community channels to get notified about upcoming events and
               workshops.
             </p>
-            <div className="mt-10 flex items-center justify-center gap-x-6">
-              <Button size="lg" asChild>
+            <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
+              <Button size="lg" className="min-w-fit" asChild>
                 <Link href="/contact">
                   Join Community
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
               </Button>
-              <Button variant="outline" size="lg" asChild>
+              <Button variant="outline" size="lg" className="min-w-fit" asChild>
                 <Link href="/hackathons">View Hackathons</Link>
               </Button>
             </div>

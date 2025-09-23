@@ -56,17 +56,17 @@ export default function HomePage() {
               Building the AI/ML community in the City of Nawabs. Join us for workshops, hackathons, and collaborative
               projects that push the boundaries of machine learning and artificial intelligence.
             </p>
-            <div className="mt-10 flex items-center justify-center gap-x-6">
-              <Button asChild size="lg" className="cursor-interactive">
+            <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-x-6">
+              <Button asChild size="lg" className="cursor-interactive w-full sm:w-auto">
                 <Link href="/events">
                   Upcoming Events
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
               </Button>
-              <Button variant="outline" size="lg" asChild className="cursor-interactive">
+              <Button variant="outline" size="lg" asChild className="cursor-interactive w-full sm:w-auto">
                 <Link href="/about">Learn More...</Link>
               </Button>
-              <Button variant="secondary" size="lg" asChild className="cursor-interactive">
+              <Button variant="secondary" size="lg" asChild className="cursor-interactive w-full sm:w-auto">
                 <Link href="https://chat.whatsapp.com/IAM2fp4IoLiGbuI6ZeNfzH">Join Now</Link>
               </Button>
             </div>
@@ -140,16 +140,16 @@ export default function HomePage() {
       </section>
 
       {/* Features Section */}
-      <section className="py-24 sm:py-32">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+      <section className="py-16 sm:py-24">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
-            <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl text-balance">What We Do</h2>
-            <p className="mt-6 text-lg leading-8 text-muted-foreground text-pretty">
+            <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-foreground sm:text-4xl text-balance">What We Do</h2>
+            <p className="mt-4 sm:mt-6 text-base sm:text-lg leading-7 sm:leading-8 text-muted-foreground text-pretty px-2">
               We foster a robust ecosystem for knowledge acquisition and innovation in AI/ML, spanning foundational workshops to advanced research discourse.
             </p>
           </div>
-          <div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-none">
-            <dl className="grid max-w-xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-3">
+          <div className="mx-auto mt-12 sm:mt-16 lg:mt-20 max-w-2xl lg:max-w-none">
+            <dl className="grid max-w-xl grid-cols-1 gap-x-6 sm:gap-x-8 gap-y-8 sm:gap-y-16 lg:max-w-none lg:grid-cols-3">
               <Card className="hover:shadow-lg transition-all duration-300 hover:-translate-y-1 cursor-interactive">
                 <CardHeader>
                   <div className="flex items-center space-x-2">

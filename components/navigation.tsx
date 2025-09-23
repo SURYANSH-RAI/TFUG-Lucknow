@@ -88,7 +88,7 @@ export function Navigation() {
   }
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/40">
+    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/40 relative">
       <nav className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
         <div className="flex lg:flex-1">
           <Link href="/" className="-m-1.5 p-1.5 cursor-interactive">
@@ -106,10 +106,14 @@ export function Navigation() {
             variant="ghost"
             size="sm"
             className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 cursor-interactive"
-            onClick={() => setMobileMenuOpen(true)}
+            onClick={() => setMobileMenuOpen((open) => !open)}
           >
-            <span className="sr-only">Open main menu</span>
-            <Menu className="h-6 w-6" aria-hidden="true" />
+            <span className="sr-only">{mobileMenuOpen ? "Close main menu" : "Open main menu"}</span>
+            {mobileMenuOpen ? (
+              <X className="h-6 w-6" aria-hidden="true" />
+            ) : (
+              <Menu className="h-6 w-6" aria-hidden="true" />
+            )}
           </Button>
         </div>
   <div className="hidden lg:flex lg:gap-x-6">
@@ -165,33 +169,18 @@ export function Navigation() {
           </Button>*/}
         </div>
       </nav>
-      {/* Mobile menu */}
-      <div className={cn("lg:hidden", mobileMenuOpen ? "block" : "hidden")}>
-        <div className="fixed inset-0 z-50" />
-        <div className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-background px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-border">
-          <div className="flex items-center justify-between">
-            <Link href="/" className="-m-1.5 p-1.5 cursor-interactive">
-              <span className="sr-only">AI Community Lucknow</span>
-              <div className="flex items-center space-x-2">
-                <div className="h-8 w-8 rounded bg-gradient-to-br from-orange-400 to-orange-600 flex items-center justify-center">
-                  <span className="text-white font-bold text-sm">TF</span>
-                </div>
-                <span className="text-xl font-bold text-foreground">AI Community Lucknow</span>
-              </div>
-            </Link>
-            <Button
-              variant="ghost"
-              size="sm"
-              className="-m-2.5 rounded-md p-2.5 cursor-interactive"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              <span className="sr-only">Close menu</span>
-              <X className="h-6 w-6" aria-hidden="true" />
-            </Button>
-          </div>
-          <div className="mt-6 flow-root">
-            <div className="-my-6 divide-y divide-border">
-              <div className="space-y-2 py-6">
+      {/* Mobile menu dropdown */}
+      {mobileMenuOpen && (
+        <>
+          {/* Overlay to close on outside click */}
+          <div
+            className="fixed inset-0 z-40"
+            onClick={() => setMobileMenuOpen(false)}
+            aria-hidden="true"
+          />
+          <div className="lg:hidden">
+            <div className="absolute top-full left-0 right-0 z-50 bg-black/75 border-b border-border shadow-lg">
+              <div className="px-6 py-4 space-y-2">
                 {navigation.map((item) => {
                   const isActive = pathname === item.href
                   return (
@@ -199,7 +188,7 @@ export function Navigation() {
                       key={item.name}
                       href={item.href}
                       className={cn(
-                        "-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 cursor-interactive transition-colors",
+                        "block rounded-lg px-3 py-2 text-base font-semibold leading-7 cursor-interactive transition-colors",
                         isActive
                           ? "text-orange-500 bg-orange-50 dark:bg-orange-950/20"
                           : "text-foreground hover:bg-muted hover:text-orange-400"
@@ -210,53 +199,46 @@ export function Navigation() {
                     </Link>
                   )
                 })}
-              </div>
-              <div className="py-6 space-y-4">
-                <Button
-                  variant="ghost"
-                  size="sm"
-                  onClick={toggleTheme}
-                  className="flex items-center justify-center space-x-2 w-full cursor-interactive relative"
-                >
-                  <Sun
-                    className={cn(
-                      "h-[1.2rem] w-[1.2rem] transition-all",
-                      resolvedTheme === "dark" ? "rotate-90 scale-0" : "rotate-0 scale-100",
-                    )}
-                  />
-                  <Moon
-                    className={cn(
-                      "absolute h-[1.2rem] w-[1.2rem] transition-all",
-                      resolvedTheme === "dark" ? "rotate-0 scale-100" : "-rotate-90 scale-0",
-                    )}
-                  />
-                  <span className="ml-8">Toggle theme</span>
-                </Button>
-                <div className="flex flex-col gap-2">
+                <div className="pt-4 border-t border-border space-y-3">
+                  <Button
+                    variant="ghost"
+                    size="sm"
+                    onClick={toggleTheme}
+                    className="flex items-center justify-center space-x-2 w-full cursor-interactive relative"
+                  >
+                    <Sun
+                      className={cn(
+                        "h-[1.2rem] w-[1.2rem] transition-all",
+                        resolvedTheme === "dark" ? "rotate-90 scale-0" : "rotate-0 scale-100",
+                      )}
+                    />
+                    <Moon
+                      className={cn(
+                        "absolute h-[1.2rem] w-[1.2rem] transition-all",
+                        resolvedTheme === "dark" ? "rotate-0 scale-100" : "-rotate-90 scale-0",
+                      )}
+                    />
+                    <span className="ml-8">Toggle theme</span>
+                  </Button>
                   <Button 
                     variant="outline" 
                     size="sm" 
                     asChild 
                     className={cn(
-                      "cursor-interactive border-2 transition-colors",
+                      "cursor-interactive border-2 transition-colors w-full",
                       resolvedTheme === "dark"
                       ? "border-black text-white bg-white hover:bg-white/80"
                       : "border-white text-white bg-black hover:bg-black/80"
                     )}
                   >
-                    <Link href="#" onClick={() => setMobileMenuOpen(false)}>Contact Us</Link>
+                    <Link href="/contact" onClick={() => setMobileMenuOpen(false)}>Contact Us</Link>
                   </Button>
-                  {/*<Button variant="outline" size="sm" asChild className="cursor-interactive bg-transparent">
-                    <Link href="https://chat.whatsapp.com/IAM2fp4IoLiGbuI6ZeNfzH" onClick={() => setMobileMenuOpen(false)}>
-                      Join Us
-                    </Link>
-                  </Button>*/}
                 </div>
               </div>
             </div>
           </div>
-        </div>
-      </div>
+        </>
+      )}
     </header>
   )
 }

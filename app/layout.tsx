@@ -9,9 +9,8 @@ import { Suspense } from "react"
 import "./globals.css"
 
 export const metadata: Metadata = {
-  title: "AI Communitu Lucknow",
+  title: "AI Community Lucknow",
   description: "AI Community Lucknow - Building AI/ML community in the City of Nawabs",
-  generator: "v0.app",
 }
 
 export default function RootLayout({

@@ -8,6 +8,15 @@ export function CustomCursor() {
   const [isClicking, setIsClicking] = useState(false)
   const [isVisible, setIsVisible] = useState(false)
   const [isOverDescription, setIsOverDescription] = useState(false)
+  const [isMapHover, setIsMapHover] = useState(false)
+  // Listen for map hover event
+  useEffect(() => {
+    const handleMapHover = (e: any) => {
+      setIsMapHover(e.detail === true)
+    }
+    window.addEventListener("custom-cursor-map-hover", handleMapHover)
+    return () => window.removeEventListener("custom-cursor-map-hover", handleMapHover)
+  }, [])
 
   useEffect(() => {
     const updateCursor = (e: MouseEvent) => {
@@ -101,7 +110,7 @@ export function CustomCursor() {
     }
   }, [])
 
-  if (!isVisible) return null
+  if (!isVisible || isMapHover) return null
 
   return (
     <>

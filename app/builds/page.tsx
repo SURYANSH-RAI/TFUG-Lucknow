@@ -414,14 +414,14 @@ export default function BuildsPage() {
                 </Badge>
               </div>
             </div>
-            <div className="mt-8 flex items-center justify-center gap-x-6">
-              <Button size="lg" asChild>
+            <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
+              <Button size="lg" className="w-auto min-w-fit" asChild>
                 <Link href="https://forms.gle/dwA1CxfR82mia2Yf8">
                   Submit Project
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
               </Button>
-              <Button variant="outline" size="lg" asChild>
+              <Button variant="outline" size="lg" className="w-auto min-w-fit" asChild>
                 <Link href="https://github.com/tfug-lucknow">
                   <Github className="mr-2 h-4 w-4" />
                   GitHub Org

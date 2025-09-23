@@ -18,13 +18,10 @@ const coreTeam = [
     name: "Prashant Shukla",
     role: "Organizer",
     bio: "Medical Image Processing || AI / ML || GenAI || Computer vision || Researcher || Co-Organiser , TFUG Lucknow & LucknowAI labs",
-    image: "/Prashant-Shukla.png",
+    image: "/PS-bgr-1.png",
     expertise: ["Deep Learning", "Computer Vision", "Community Building"],
     social: {
-      github: "Prashant Shukla",
       linkedin: "prashant-shukla30",
-      twitter: "priya_ml_dev",
-      email: "prashant@tfuglucknow.org",
     },
   },
   /*{
@@ -59,177 +56,155 @@ const coreTeam = [
 
 const volunteersByYear = {
   2025: [
+    // Coming soon...
+    /* {
+      name: "Priya Singh",
+      role: "Event Coordinator",
+      expertise: ["Event Management", "Community Building"],
+      image: "/professional-woman-product-manager.png",
+      url: "https://linkedin.com/in/priya-singh",
+    },
     {
-      name: "Ananya Mishra",
+      name: "Rahul Kumar",
+      role: "Tech Lead",
+      expertise: ["Full Stack Development", "Mentoring"],
+      image: "/professional-man-full-stack-developer.jpg",
+      url: "https://linkedin.com/in/rahul-kumar",
+    },
+    {
+      name: "Sneha Patel",
       role: "Content Creator",
       expertise: ["Technical Writing", "Social Media"],
       image: "/professional-woman-content-creator.jpg",
-    },
-    {
-      name: "Vikash Kumar",
-      role: "Community Moderator",
-      expertise: ["Community Management", "Discord/Slack"],
-      image: "/professional-man-community-manager.jpg",
-    },
-    {
-      name: "Shreya Verma",
-      role: "Event Coordinator",
-      expertise: ["Event Planning", "Team Management"],
-      image: "/professional-woman-product-manager.png",
-    },
-    {
-      name: "Rahul Sharma",
-      role: "Technical Writer",
-      expertise: ["Documentation", "Tutorial Creation"],
-      image: "/professional-man-full-stack-developer.jpg",
-    },
-    {
-      name: "Neha Gupta",
-      role: "Marketing Lead",
-      expertise: ["Digital Marketing", "Brand Strategy"],
-      image: "/professional-woman-ui-ux-designer.jpg",
-    },
-    {
-      name: "Arjun Patel",
-      role: "Workshop Assistant",
-      expertise: ["Training", "Technical Support"],
-      image: "/professional-man-logistics-coordinator.jpg",
-    },
+      url: "https://linkedin.com/in/sneha-patel",
+    }, */
   ],
   2024: [
     {
-      name: "Ritu Agarwal",
+      name: "Suryansh Rai",
       role: "Design Lead",
       expertise: ["UI/UX Design", "Brand Design"],
-      image: "/professional-woman-ui-ux-designer.jpg",
+      image: "/Suryansh.jpg",
+      url: "https://linkedin.com/in/suryansh-rai",
     },
     {
-      name: "Amit Pandey",
+      name: "Zuhaib Khan",
       role: "Logistics Coordinator",
       expertise: ["Event Logistics", "Vendor Management"],
-      image: "/professional-man-logistics-coordinator.jpg",
+      image: "/Zuhaib.jpg",
+      url: "https://linkedin.com/in/zuhaib-khan",
     },
     {
-      name: "Kavya Jain",
+      name: "Ayush Sharma",
       role: "Student Ambassador",
       expertise: ["Student Outreach", "Campus Relations"],
-      image: "/professional-woman-student-ambassador.jpg",
+      image: "/AyushS.jpg",
+      url: "https://linkedin.com/in/aayush9119",
     },
     {
-      name: "Sanjay Kumar",
+      name: "Anshul Yadav",
       role: "Community Outreach",
       expertise: ["Partnership Building", "Networking"],
-      image: "/professional-man-community-manager.jpg",
+      image: "/AnshulY.png",
+      url: "https://linkedin.com/in/anshul-yadav-0479111b1",
     },
     {
-      name: "Pooja Agarwal",
+      name: "Arooj Pandey",
       role: "Content Strategist",
       expertise: ["Content Planning", "SEO"],
-      image: "/professional-woman-content-creator.jpg",
+      image: "/Arooj.jpeg",
+      url: "https://linkedin.com/in/arooj-pandey",
     },
     {
-      name: "Manish Singh",
+      name: "Abhishek Verma",
       role: "Technical Mentor",
       expertise: ["Code Review", "Mentoring"],
-      image: "/professional-man-full-stack-developer.jpg",
+      image: "/AbhishekV.jpeg",
+      url: "https://linkedin.com/in/abhishek-verma",
+    },
+    {
+      name: "Nancy Srivastava",
+      role: "Design Lead",
+      expertise: ["UI/UX Design", "Brand Design"],
+      image: "/Nancy.jpeg",
+      url: "https://linkedin.com/in/nancy-srivastava",
+    },
+    {
+      name: "Hitanshu",
+      role: "Logistics Coordinator",
+      expertise: ["Event Logistics", "Vendor Management"],
+      image: "/Hitanshu.jpg",
+      url: "https://linkedin.com/in/hitanshu",
+    },
+    {
+      name: "Amar Deep Rao",
+      role: "Student Ambassador",
+      expertise: ["Student Outreach", "Campus Relations"],
+      image: "/AmarDR.jpeg",
+      url: "https://linkedin.com/in/amar-deep-rao",
+    },
+    {
+      name: "Aksaht trivedi",
+      role: "Community Outreach",
+      expertise: ["Partnership Building", "Networking"],
+      image: "/AkshatT.jpg",
+      url: "https://linkedin.com/in/akshat-trivedi",
+    },
+    {
+      name: "Akshat Vadera",
+      role: "Content Strategist",
+      expertise: ["Content Planning", "SEO"],
+      image: "/AkshatV.png",
+      url: "https://linkedin.com/in/akshat-vadera",
+    },
+    {
+      name: "Devnandini",
+      role: "Technical Mentor",
+      expertise: ["Code Review", "Mentoring"],
+      image: "/Devnandini.png",
+      url: "https://linkedin.com/in/devnandini",
     },
   ],
-  2023: [
-    {
-      name: "Deepak Yadav",
-      role: "Sponsorship Lead",
-      expertise: ["Partnership Development", "Fundraising"],
-      image: "/professional-man-business-development.jpg",
-    },
-    {
-      name: "Priyanka Singh",
-      role: "Workshop Assistant",
-      expertise: ["Teaching", "Technical Support"],
-      image: "/professional-woman-software-engineer.png",
-    },
-    {
-      name: "Akash Tiwari",
-      role: "Social Media Manager",
-      expertise: ["Social Media", "Community Engagement"],
-      image: "/professional-man-community-manager.jpg",
-    },
-    {
-      name: "Swati Mishra",
-      role: "Research Coordinator",
-      expertise: ["Research", "Data Analysis"],
-      image: "/professional-woman-product-manager.png",
-    },
-    {
-      name: "Rajesh Yadav",
-      role: "Event Volunteer",
-      expertise: ["Event Support", "Logistics"],
-      image: "/professional-man-logistics-coordinator.jpg",
-    },
-    {
-      name: "Divya Sharma",
-      role: "Design Volunteer",
-      expertise: ["Graphic Design", "Visual Arts"],
-      image: "/professional-woman-ui-ux-designer.jpg",
-    },
-  ],
-}
+  }
 
 const techLeaders = [
   {
-    name: "Dr. Rajesh Kumar",
-    role: "AI Research Lead",
-    bio: "Leading AI researcher with 10+ years of experience in deep learning and computer vision. Published 50+ research papers and mentors the next generation of AI scientists.",
-    expertise: ["Deep Learning", "Computer Vision", "Research"],
-    image: "/professional-data-scientist.png",
-    linkedin: "https://linkedin.com/in/rajesh-kumar-ai",
-    webpage: "https://rajeshkumar.dev",
+    name: "Ayush Sharma",
+    role: "AI/ML Engineer at Kitsa",
+    bio: "AI/ML Engineer at Kitsa, where I design and deploy intelligent agent systems to streamline data curation and accelerate clinical trial processes. My work blends ML engineering, backend architecture, and AWS cloud to build scalable, production-grade solutions for real-world healthcare impact.",
+    expertise: ["RAG", "CI/CD", "Cloud Deployements", "Node.js"],
+    image: "/Ayush.jpeg",
+    linkedin: "https://www.linkedin.com/in/aayush9119/",
+    webpage: "https://aayushsharma-1.github.io/",
   },
   {
-    name: "Priya Sharma",
-    role: "ML Engineering Manager",
-    bio: "Expert ML engineer specializing in MLOps and distributed systems. Built scalable AI infrastructure serving millions of users and leads high-performing engineering teams.",
-    expertise: ["MLOps", "Distributed Systems", "Team Leadership"],
-    image: "/professional-woman-product-manager.png",
-    linkedin: "https://linkedin.com/in/priya-sharma-ml",
-    webpage: "https://priyasharma.tech",
-  },
-  {
-    name: "Amit Singh",
-    role: "AI Product Director",
-    bio: "Visionary product leader driving AI strategy and innovation. Passionate about AI ethics and responsible AI development with a track record of successful AI product launches.",
-    expertise: ["Product Strategy", "AI Ethics", "Innovation"],
-    image: "/professional-man-business-development.jpg",
-    linkedin: "https://linkedin.com/in/amit-singh-ai",
-    webpage: "https://amitsingh.ai",
-  },
-  {
-    name: "Dr. Sunita Patel",
-    role: "Data Science Lead",
-    bio: "Data science expert with deep expertise in statistical modeling and big data analytics. PhD in Statistics with extensive experience in transforming data into actionable insights.",
-    expertise: ["Statistical Modeling", "Big Data", "Analytics"],
-    image: "/professional-woman-software-engineer.png",
-    linkedin: "https://linkedin.com/in/sunita-patel-ds",
-    webpage: "https://sunitapatel.data",
+    name: "Anshul Yadav",
+    role: "AI/ML Engineer at Kitsa",
+    bio: "Passionate about leveraging cutting-edge technologies to create innovative AI-driven solutions. With a solid foundation in Python and expertise in AI, ML, and LLM applications, I have developed impactful projects, including multimodal chatbots, personalized assistants, and automation tools for large-scale community engagement.",
+    expertise: ["Machine Learning", "NLP", "RAG", "Computer Vision"],
+    image: "/Anshul.jpeg",
+    linkedin: "https://www.linkedin.com/in/anshul-yadav-0479111b1/",
+    webpage: "https://anshul-yadav.vercel.app/",
   },
   
 ]
 
 function TeamMemberCard({ member, isCore = false }: { member: any; isCore?: boolean }) {
   return (
-    <Card className="h-full">
-      <CardHeader className="text-center">
-        <Avatar className={`mx-auto ${isCore ? "h-24 w-24" : "h-16 w-16"}`}>
+    <Card className="h-full relative overflow-hidden group bg-card">
+      <CardHeader className="text-center p-4 sm:p-6">
+        <Avatar className={`mx-auto ${isCore ? "h-20 w-20 sm:h-24 sm:w-24" : "h-14 w-14 sm:h-16 sm:w-16"} ring-2 ring-offset-2 ring-offset-background ring-primary/10 transition-transform group-hover:scale-105 duration-300`}>
           <AvatarImage src={member.image || "/placeholder.svg"} alt={member.name} />
-          <AvatarFallback className="text-lg font-semibold">
+          <AvatarFallback className="text-base sm:text-lg font-semibold">
             {member.name
               .split(" ")
               .map((n: string) => n[0])
               .join("")}
           </AvatarFallback>
         </Avatar>
-        <div>
-          <CardTitle className={isCore ? "text-xl" : "text-lg"}>{member.name}</CardTitle>
-          <CardDescription className="font-medium text-primary">{member.role}</CardDescription>
+        <div className="mt-3 sm:mt-4">
+          <CardTitle className={`${isCore ? "text-lg sm:text-xl" : "text-base sm:text-lg"} line-clamp-1`}>{member.name}</CardTitle>
+          <CardDescription className="font-medium text-primary mt-1">{member.role}</CardDescription>
         </div>
       </CardHeader>
       <CardContent>
@@ -295,23 +270,23 @@ function VolunteersSection() {
     .sort((a, b) => b - a)
 
   return (
-    <section className="py-16 sm:py-24">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+    <section className="py-12 sm:py-16 lg:py-24">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
-          <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl text-balance">Our Volunteers</h2>
-          <p className="mt-6 text-lg leading-8 text-muted-foreground text-pretty">
+          <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-foreground lg:text-4xl text-balance">Our Volunteers</h2>
+          <p className="mt-4 sm:mt-6 text-base sm:text-lg leading-7 text-muted-foreground text-pretty">
             Amazing community members who have contributed their time and skills over the years.
           </p>
         </div>
 
         {/* Year Selector Tabs */}
-        <div className="mx-auto mt-16">
-          <div className="flex flex-wrap justify-center gap-2 mb-12">
+        <div className="mx-auto mt-10 sm:mt-16">
+          <div className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-6 xs:mb-8 sm:mb-12 px-2">
             {years.map((year) => (
               <button
                 key={year}
                 onClick={() => setSelectedYear(year)}
-                className={`px-6 py-3 rounded-full text-sm font-semibold transition-all duration-300 cursor-interactive ${
+                className={`px-4 xs:px-6 py-2 xs:py-3 rounded-full text-xs xs:text-sm font-semibold transition-all duration-300 cursor-interactive ${
                   selectedYear === year
                     ? 'bg-gradient-to-r from-orange-500 to-yellow-400 text-white shadow-lg scale-105'
                     : 'bg-muted/40 text-muted-foreground hover:bg-muted/60 hover:text-foreground'
@@ -328,18 +303,31 @@ function VolunteersSection() {
           {/* Volunteers Grid */}
           {selectedYear && (
             <div className="animate-in fade-in-50 slide-in-from-bottom-4">
-              <ChromaGrid
-                items={volunteersByYear[selectedYear as keyof typeof volunteersByYear].map((volunteer, index) => ({
-                  image: volunteer.image || "/placeholder.svg",
-                  title: volunteer.name,
-                  subtitle: volunteer.role,
-                  handle: `@${volunteer.name.toLowerCase().replace(/\s+/g, '')}`,
-                  borderColor: ['#4F46E5', '#10B981', '#F59E0B', '#EF4444', '#8B5CF6', '#06B6D4'][index % 6],
-                  gradient: `linear-gradient(${135 + (index * 30)}deg, ${['#4F46E5', '#10B981', '#F59E0B', '#EF4444', '#8B5CF6', '#06B6D4'][index % 6]}, #000)`
-                }))}
-                columns={3}
-                rows={2}
-              />
+              {volunteersByYear[selectedYear as keyof typeof volunteersByYear].length === 0 ? (
+                <div className="text-center py-16">
+                  <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-orange-500 to-yellow-400 rounded-full mb-6">
+                    <span className="text-2xl">🚀</span>
+                  </div>
+                  <h3 className="text-2xl font-bold text-foreground mb-4">Coming Soon...</h3>
+                  <p className="text-muted-foreground max-w-md mx-auto">
+                    We're working on building an amazing team of volunteers for {selectedYear}. Stay tuned for updates!
+                  </p>
+                </div>
+              ) : (
+                <ChromaGrid
+                  items={volunteersByYear[selectedYear as keyof typeof volunteersByYear].map((volunteer, index) => ({
+                    image: volunteer.image || "/placeholder.svg",
+                    title: volunteer.name,
+                    subtitle: volunteer.role,
+                    handle: `@${volunteer.name.toLowerCase().replace(/\s+/g, '')}`,
+                    borderColor: ['#4F46E5', '#10B981', '#F59E0B', '#EF4444', '#8B5CF6', '#06B6D4'][index % 6],
+                    gradient: `linear-gradient(${135 + (index * 30)}deg, ${['#4F46E5', '#10B981', '#F59E0B', '#EF4444', '#8B5CF6', '#06B6D4'][index % 6]}, #000)`,
+                    url: volunteer.url
+                  }))}
+                  columns={3}
+                  rows={2}
+                />
+              )}
             </div>
           )}
         </div>
@@ -350,25 +338,25 @@ function VolunteersSection() {
 
 function TechLeadersSection() {
   return (
-    <section className="py-16 sm:py-24 bg-gradient-to-br from-background via-muted/20 to-background">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+    <section className="py-12 sm:py-16 lg:py-24 bg-gradient-to-br from-background via-muted/20 to-background">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
-          <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-orange-500 to-yellow-400 rounded-full mb-6">
-            <Star className="h-8 w-8 text-white" />
+          <div className="inline-flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 bg-gradient-to-r from-orange-500 to-yellow-400 rounded-full mb-4 sm:mb-6">
+            <Star className="h-6 w-6 sm:h-8 sm:w-8 text-white" />
           </div>
-          <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl text-balance">Core Members</h2>
-          <p className="mt-6 text-lg leading-8 text-muted-foreground text-pretty">
+          <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-foreground lg:text-4xl text-balance">Core Members</h2>
+          <p className="mt-4 sm:mt-6 text-base sm:text-lg leading-7 sm:leading-8 text-muted-foreground text-pretty px-2">
             Meet the visionary technical leaders who have shaped our AI/ML community across the years.
           </p>
         </div>
 
-        <div className="mx-auto mt-16">
+        <div className="mx-auto mt-10 sm:mt-16">
           {/* Leaders Grid - Show all leaders without year filter */}
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="flex flex-wrap justify-center gap-4 sm:gap-6 px-2 max-w-[1400px] mx-auto">
             {techLeaders.map((leader: any, index: number) => (
               <div
                 key={leader.name}
-                className="group relative bg-gradient-to-br from-background to-muted/30 rounded-2xl p-6 border border-border/50 hover:border-orange-200 transition-all duration-500 hover:shadow-2xl hover:shadow-orange-100/20 animate-in fade-in-50 slide-in-from-bottom-4"
+                className="group relative bg-gradient-to-br from-background to-muted/30 rounded-2xl p-4 xs:p-5 sm:p-6 border border-border/50 hover:border-orange-200 transition-all duration-500 hover:shadow-2xl hover:shadow-orange-100/20 animate-in fade-in-50 slide-in-from-bottom-4 w-full max-w-[320px] sm:w-[320px]"
                 style={{ animationDelay: `${index * 150}ms` }}
               >
                 {/* Gradient overlay on hover */}
@@ -422,13 +410,13 @@ function TechLeadersSection() {
                   </div>
 
                   {/* Action buttons */}
-                  <div className="flex space-x-3">
+                  <div className="flex flex-wrap gap-2 sm:gap-3">
                     {leader.linkedin && (
                       <Button 
                         variant="outline" 
                         size="sm" 
                         asChild 
-                        className="flex-1 group-hover:border-orange-300 group-hover:bg-orange-50 transition-all duration-300 cursor-interactive"
+                        className="w-auto min-w-[120px] group-hover:border-orange-300 group-hover:bg-orange-50 transition-all duration-300 cursor-interactive"
                       >
                         <Link href={leader.linkedin} target="_blank" rel="noopener noreferrer">
                           <Linkedin className="h-4 w-4 mr-2" />
@@ -457,7 +445,7 @@ function TechLeadersSection() {
 
           {/* Stats footer */}
           <div className="mt-16 text-center">
-            <div className="inline-flex items-center space-x-8 px-8 py-4 bg-gradient-to-r from-muted/30 to-muted/50 rounded-full">
+            <div className="inline-flex items-center space-x-4 px-8 py-4 bg-gradient-to-r from-muted/30 to-muted/50 rounded-full">
               <div className="text-center">
                 <div className="text-2xl font-bold text-foreground">
                   {techLeaders.length}
@@ -488,17 +476,17 @@ export default function TeamPage() {
       <Navigation />
 
       {/* Hero Section */}
-      <section className="py-24 sm:py-32">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+      <section className="py-12 xs:py-16 sm:py-24">
+        <div className="mx-auto max-w-7xl px-3 xs:px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
-            <Badge variant="secondary" className="mb-4">
+            <Badge variant="secondary" className="mb-3 sm:mb-4 text-xs sm:text-sm">
               <Users className="mr-1 h-3 w-3" />
               Meet Our Team
             </Badge>
-            <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl text-balance">
+            <h1 className="text-2xl xs:text-3xl sm:text-4xl font-bold tracking-tight text-foreground lg:text-5xl text-balance">
               The People Behind <span className="text-primary">AI Community Lucknow</span>
             </h1>
-            <p className="mt-6 text-lg leading-8 text-muted-foreground text-pretty">
+            <p className="mt-4 sm:mt-6 text-sm xs:text-base sm:text-lg leading-6 sm:leading-8 text-muted-foreground text-pretty">
               Our diverse team of AI enthusiasts, researchers, and community builders work together to create an
               inclusive and thriving machine learning community in Lucknow.
             </p>
@@ -507,34 +495,35 @@ export default function TeamPage() {
       </section>
 
       {/* Core Team */}
-      <section className="py-16 sm:py-24">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+      <section className="py-8 xs:py-12 sm:py-16 lg:py-10">
+        <div className="mx-auto max-w-7xl px-3 xs:px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
-            <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl text-balance">Organizers</h2>
-            <p className="mt-6 text-lg leading-8 text-muted-foreground text-pretty">
+            <h2 className="text-xl xs:text-2xl sm:text-3xl font-bold tracking-tight text-foreground lg:text-4xl text-balance">Organizers</h2>
+            <p className="mt-3 xs:mt-4 sm:mt-6 text-sm xs:text-base sm:text-lg leading-6 sm:leading-7 text-muted-foreground text-pretty">
               Meet the dedicated individuals who lead and organize our community activities.
             </p>
           </div>
-          <div className="mx-auto mt-16 flex flex-wrap justify-center items-center gap-12 sm:mt-20">
+          <div className="mx-auto mt-8 xs:mt-10 sm:mt-16 flex flex-wrap justify-center items-center gap-4 xs:gap-6 sm:gap-8 lg:gap-12">
             {coreTeam.map((member) => (
-              <ProfileCard
-                key={member.id}
-                avatarUrl={member.image || "/placeholder.svg"}
-                name={member.name}
-                title={member.role}
-                handle={member.social?.linkedin || "member"}
-                status="Online"
-                contactText="Connect"
-                showUserInfo={true}
-                enableTilt={true}
-                enableMobileTilt={true}
-                onContactClick={() => {
-                  if (member.social?.linkedin) {
-                    window.open(`https://linkedin.com/in/${member.social.linkedin}`, '_blank');
-                  }
-                }}
-                className="w-96 h-auto"
-              />
+              <div key={member.id} className="flex justify-center">
+                <ProfileCard
+                  avatarUrl={member.image || "/placeholder.svg"}
+                  name={member.name}
+                  title={member.role}
+                  handle={member.social?.linkedin || "member"}
+                  status="Online"
+                  contactText="Connect"
+                  showUserInfo={true}
+                  enableTilt={true}
+                  enableMobileTilt={false}
+                  className="w-full max-w-[340px] sm:w-[340px]"
+                  onContactClick={() => {
+                    if (member.social?.linkedin) {
+                      window.open(`https://linkedin.com/in/${member.social.linkedin}`, '_blank');
+                    }
+                  }}
+                />
+              </div>
             ))}
           </div>
         </div>
@@ -590,28 +579,28 @@ export default function TeamPage() {
       </section>
 
       {/* Team Stats */}
-      <section className="py-16 sm:py-24">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+      <section className="py-12 sm:py-16 lg:py-24">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
-            <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl text-balance">Team Impact</h2>
-            <p className="mt-6 text-lg leading-8 text-muted-foreground text-pretty">
+            <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-foreground lg:text-4xl text-balance">Team Impact</h2>
+            <p className="mt-4 sm:mt-6 text-base sm:text-lg leading-7 text-muted-foreground text-pretty">
               Together, we've built something amazing for the Lucknow tech community.
             </p>
           </div>
-          <div className="mx-auto mt-16 grid max-w-2xl grid-cols-2 gap-8 sm:mt-20 lg:mx-0 lg:max-w-none lg:grid-cols-4">
-            <div className="flex flex-col items-center">
-              <div className="text-4xl font-bold text-primary">5+</div>
-              <div className="mt-2 text-sm font-medium text-muted-foreground">Core Team Members</div>
+          <div className="mx-auto mt-10 xs:mt-12 sm:mt-16 flex flex-wrap justify-center gap-4 xs:gap-6 sm:gap-8 sm:mt-20 lg:mx-0 lg:max-w-none">
+            <div className="flex flex-col items-center w-full max-w-[200px] sm:w-[200px]">
+              <div className="text-2xl xs:text-3xl sm:text-4xl font-bold text-primary">5+</div>
+              <div className="mt-1 xs:mt-2 text-xs xs:text-sm font-medium text-muted-foreground text-center">Core Team Members</div>
             </div>
-            <div className="flex flex-col items-center">
+            <div className="flex flex-col items-center w-full max-w-[200px] sm:w-[200px]">
               <div className="text-4xl font-bold text-secondary">15+</div>
               <div className="mt-2 text-sm font-medium text-muted-foreground">Active Volunteers</div>
             </div>
-            <div className="flex flex-col items-center">
+            <div className="flex flex-col items-center w-full max-w-[200px] sm:w-[200px]">
               <div className="text-4xl font-bold text-primary">500+</div>
               <div className="mt-2 text-sm font-medium text-muted-foreground">Hours Contributed</div>
             </div>
-            <div className="flex flex-col items-center">
+            <div className="flex flex-col items-center w-full max-w-[200px] sm:w-[200px]">
               <div className="text-4xl font-bold text-secondary">5+</div>
               <div className="mt-2 text-sm font-medium text-muted-foreground">Events Organized</div>
             </div>

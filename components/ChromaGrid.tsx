@@ -157,7 +157,7 @@ export const ChromaGrid: React.FC<ChromaGridProps> = ({
   return (
     <div
       ref={rootRef}
-      className={`chroma-grid ${className}`}
+      className={`volunteer-chroma-grid ${className}`}
       style={
         {
           '--r': `${radius}px`,
@@ -171,7 +171,7 @@ export const ChromaGrid: React.FC<ChromaGridProps> = ({
       {data.map((c, i) => (
         <article
           key={i}
-          className="chroma-card"
+          className="volunteer-chroma-card"
           onMouseMove={handleCardMove}
           onClick={() => handleCardClick(c.url)}
           style={
@@ -182,19 +182,19 @@ export const ChromaGrid: React.FC<ChromaGridProps> = ({
             } as React.CSSProperties
           }
         >
-          <div className="chroma-img-wrapper">
+          <div className="volunteer-chroma-img-wrapper">
             <img src={c.image} alt={c.title} loading="lazy" />
           </div>
-          <footer className="chroma-info">
-            <h3 className="name">{c.title}</h3>
-            {c.handle && <span className="handle">{c.handle}</span>}
-            <p className="role">{c.subtitle}</p>
-            {c.location && <span className="location">{c.location}</span>}
+          <footer className="volunteer-chroma-info">
+            <h3 className="volunteer-name">{c.title}</h3>
+            {c.handle && <span className="volunteer-handle">{c.handle}</span>}
+            <p className="volunteer-role">{c.subtitle}</p>
+            {c.location && <span className="volunteer-location">{c.location}</span>}
           </footer>
         </article>
       ))}
-      <div className="chroma-overlay" />
-      <div ref={fadeRef} className="chroma-fade" />
+      <div className="volunteer-chroma-overlay" />
+      <div ref={fadeRef} className="volunteer-chroma-fade" />
     </div>
   );
 };

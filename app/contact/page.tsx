@@ -12,12 +12,19 @@ import FAQBox from "@/components/faq-tooltip"
 
 export default function ContactPage() {
   const [scrollY, setScrollY] = useState(0)
+  const [isMapHover, setIsMapHover] = useState(false)
 
   useEffect(() => {
     const handleScroll = () => setScrollY(window.scrollY)
     window.addEventListener("scroll", handleScroll)
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
+
+  // Dispatch custom event for cursor visibility
+  useEffect(() => {
+    const event = new CustomEvent("custom-cursor-map-hover", { detail: isMapHover })
+    window.dispatchEvent(event)
+  }, [isMapHover])
 
   return (
     <div className="min-h-screen bg-background">
@@ -63,7 +70,11 @@ export default function ContactPage() {
                 <CardDescription>Find us in the heart of Lucknow, the City of Nawabs.</CardDescription>
               </CardHeader>
               <CardContent>
-                <div className="aspect-video rounded-lg overflow-hidden bg-muted">
+                <div
+                  className="aspect-video rounded-lg overflow-hidden bg-muted"
+                  onMouseEnter={() => setIsMapHover(true)}
+                  onMouseLeave={() => setIsMapHover(false)}
+                >
                   <iframe
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d227748.99971179442!2d80.77769!3d26.8467!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399bfd991f32b16b%3A0x93ccba8909978be7!2sLucknow%2C%20Uttar%20Pradesh!5e0!3m2!1sen!2sin!4v1635000000000!5m2!1sen!2sin"
                     width="100%"

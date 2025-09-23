@@ -45,9 +45,9 @@ const adjust = (value: number, fromMin: number, fromMax: number, toMin: number, 
 const easeInOutCubic = (x: number): number => (x < 0.5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2);
 
 const ProfileCardComponent: React.FC<ProfileCardProps> = ({
-  avatarUrl = '<Placeholder for avatar URL>',
-  iconUrl = '<Placeholder for icon URL>',
-  grainUrl = '<Placeholder for grain URL>',
+  avatarUrl = '/placeholder.svg',
+  iconUrl = '/placeholder-icon.png',
+  grainUrl = '/grain-texture.png',
   behindGradient,
   innerGradient,
   showBehindGradient = true,
@@ -278,14 +278,14 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
   }, [onContactClick]);
 
   return (
-    <div ref={wrapRef} className={`pc-card-wrapper ${className}`.trim()} style={cardStyle}>
-      <section ref={cardRef} className="pc-card">
-        <div className="pc-inside">
-          <div className="pc-shine" />
-          <div className="pc-glare" />
-          <div className="pc-content pc-avatar-content">
+    <div ref={wrapRef} className={`organizer-pc-card-wrapper ${className}`.trim()} style={cardStyle}>
+      <section ref={cardRef} className="organizer-pc-card">
+        <div className="organizer-pc-inside">
+          <div className="organizer-pc-shine" />
+          <div className="organizer-pc-glare" />
+          <div className="organizer-pc-content organizer-pc-avatar-content">
             <img
-              className="avatar"
+              className="organizer-avatar"
               src={avatarUrl}
               alt={`${name || 'User'} avatar`}
               loading="lazy"
@@ -295,9 +295,9 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
               }}
             />
             {showUserInfo && (
-              <div className="pc-user-info">
-                <div className="pc-user-details">
-                  <div className="pc-mini-avatar">
+              <div className="organizer-pc-user-info">
+                <div className="organizer-pc-user-details">
+                  <div className="organizer-pc-mini-avatar">
                     <img
                       src={miniAvatarUrl || avatarUrl}
                       alt={`${name || 'User'} mini avatar`}
@@ -309,13 +309,13 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
                       }}
                     />
                   </div>
-                  <div className="pc-user-text">
-                    <div className="pc-handle">@{handle}</div>
-                    <div className="pc-status">{status}</div>
+                  <div className="organizer-pc-user-text">
+                    <div className="organizer-pc-handle">@{handle}</div>
+                    <div className="organizer-pc-status">{status}</div>
                   </div>
                 </div>
                 <button
-                  className="pc-contact-btn"
+                  className="organizer-pc-contact-btn"
                   onClick={handleContactClick}
                   style={{ pointerEvents: 'auto' }}
                   type="button"
@@ -326,8 +326,8 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
               </div>
             )}
           </div>
-          <div className="pc-content">
-            <div className="pc-details">
+          <div className="organizer-pc-content">
+            <div className="organizer-pc-details">
               <h3>{name}</h3>
               <p>{title}</p>
             </div>

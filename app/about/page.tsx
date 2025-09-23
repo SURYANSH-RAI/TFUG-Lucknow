@@ -10,17 +10,17 @@ export default function AboutPage() {
       <Navigation />
 
       {/* Hero Section */}
-      <section className="py-24 sm:py-32">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+      <section className="py-16 sm:py-24">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
-            <Badge variant="secondary" className="mb-4">
+            <Badge variant="secondary" className="mb-4 inline-flex items-center">
               <MapPin className="mr-1 h-3 w-3" />
               About AI Community Lucknow
             </Badge>
-            <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl text-balance">
+            <h1 className="text-2xl sm:text-4xl font-bold tracking-tight text-foreground lg:text-5xl text-balance">
               Building AI/ML Community in the <span className="text-primary">City of Nawabs</span>
             </h1>
-            <p className="mt-6 text-lg leading-8 text-muted-foreground text-pretty">
+            <p className="mt-6 text-base leading-7 sm:text-m sm:leading-8 text-muted-foreground text-pretty">
               AI Community Lucknow is a vibrant community of AI enthusiasts, machine learning practitioners,
               and technology innovators dedicated to advancing artificial intelligence in Uttar Pradesh's capital city.
             </p>
@@ -178,14 +178,14 @@ export default function AboutPage() {
               Whether you're a student, professional, researcher, or simply curious about AI/ML, you're welcome to be
               part of our growing community in Lucknow.
             </p>
-            <div className="mt-10 flex items-center justify-center gap-x-6">
-              <Badge variant="outline" className="px-4 py-2">
+            <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
+              <Badge variant="outline" className="px-4 py-2 text-sm sm:text-base whitespace-nowrap">
                 Students Welcome
               </Badge>
-              <Badge variant="outline" className="px-4 py-2">
+              <Badge variant="outline" className="px-4 py-2 text-sm sm:text-base whitespace-nowrap">
                 All Skill Levels
               </Badge>
-              <Badge variant="outline" className="px-4 py-2">
+              <Badge variant="outline" className="px-4 py-2 text-sm sm:text-base whitespace-nowrap">
                 Free Events
               </Badge>
             </div>
