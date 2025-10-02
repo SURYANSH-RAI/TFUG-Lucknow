@@ -56,14 +56,14 @@ const upcomingEvents = [
     title: "The ART of asking AI - Prompt Engineering for everyone",
     description:
       "Expert talk on how AI and ML are revolutionizing healthcare, featuring case studies and practical implementations.",
-    date: "TBA",
-    time: "TBA",
-    location: "TBA",
-    attendees: 0,
+    date: "2025-09-22",
+    time: "8:00-9:00 PM",
+    location: "Commudle",
+    attendees: 50,
     // maxAttendees: 200,
     type: "Talk",
     level: "All Levels",
-    status: "upcoming",
+    status: "completed",
   },
   // {
   //   id: 5,
@@ -77,7 +77,7 @@ const upcomingEvents = [
   //   maxAttendees: 200,
   //   type: "Talk",
   //   level: "All Levels",
-  //   status: "upcoming",
+  //   status: "upcoming", //to activate put the registration link and leave status with no input
   // },
 ]
 
