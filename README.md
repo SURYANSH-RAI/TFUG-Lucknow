@@ -1,4 +1,4 @@
-# <img src="./public/tfug.svg" alt="TFUG Lucknow Logo" height="40" style="vertical-align: middle; margin-right: 10px;"> TFUG-Lucknow Website
+# <img src="./public/AICL-logo-transparent.svg" alt="TFUG Lucknow Logo" height="40" style="vertical-align: middle; margin-right: 10px;"> TFUG-Lucknow Website
 
 This repository contains the official website for TensorFlow User Group (TFUG) Lucknow. The website serves as a hub for the community, showcasing events, community leaders, resources, and ways to connect with the Lucknow TensorFlow and machine learning community.
 
