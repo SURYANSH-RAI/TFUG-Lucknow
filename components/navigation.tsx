@@ -77,11 +77,9 @@ export function Navigation() {
               <Sun className="h-[1.2rem] w-[1.2rem]" />
               <span className="sr-only">Toggle theme</span>
             </Button>
-            {/*
-            <Button variant="outline" size="sm" asChild className="cursor-interactive bg-transparent">
+            {/* <Button variant="outline" size="sm" asChild className="cursor-interactive bg-transparent">
               <Link href="https://chat.whatsapp.com/IAM2fp4IoLiGbuI6ZeNfzH">Join Us</Link>
-            </Button>
-            */}
+            </Button> */}
           </div>
         </nav>
       </header>
@@ -117,7 +115,7 @@ export function Navigation() {
             )}
           </Button>
         </div>
-  <div className="hidden lg:flex lg:gap-x-6">
+        <div className="hidden lg:flex lg:gap-x-6">
           {navigation.map((item) => {
             const isActive = pathname === item.href
             return (
@@ -201,26 +199,29 @@ export function Navigation() {
                   )
                 })}
                 <div className="pt-4 border-t border-border space-y-3">
+                  {/* ccb */}
                   <Button
                     variant="ghost"
                     size="sm"
                     onClick={toggleTheme}
-                    className="flex items-center justify-center space-x-2 w-full cursor-interactive relative"
+                    className="flex items-center justify-start space-x-2 cursor-interactive"
                   >
-                    <Sun
-                      className={cn(
-                        "h-[1.2rem] w-[1.2rem] transition-all",
-                        resolvedTheme === "dark" ? "rotate-90 scale-0" : "rotate-0 scale-100",
-                      )}
-                    />
-                    <Moon
-                      className={cn(
-                        "absolute h-[1.2rem] w-[1.2rem] transition-all",
-                        resolvedTheme === "dark" ? "rotate-0 scale-100" : "-rotate-90 scale-0",
-                      )}
-                    />
-                    <span className="ml-8">Toggle theme</span>
+                    <div className="relative h-[1.2rem] w-[1.2rem]">
+                      <Sun
+                        className={cn(
+                          "absolute h-full w-full transition-all",
+                          resolvedTheme === "dark" ? "rotate-90 scale-0" : "rotate-0 scale-100"
+                        )}
+                      />
+                      <Moon
+                        className={cn(
+                          "absolute h-full w-full transition-all",
+                          resolvedTheme === "dark" ? "rotate-0 scale-100" : "-rotate-90 scale-0"
+                        )}
+                      />
+                    </div>
                   </Button>
+                  {/* END: CORRECTED CODE BLOCK */}
                   <Button 
                     variant="outline" 
                     size="sm" 
