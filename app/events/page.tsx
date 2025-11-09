@@ -23,7 +23,7 @@ const upcomingEvents = [
   //   registrationLink: "",
   //   status: "upcoming",
   // },
-  {
+  /*{
     id: 2,
     title: "ML Fundamentals and hands-on ML Projects & Application",
     description:
@@ -50,7 +50,7 @@ const upcomingEvents = [
     type: "Offline",
     level: "All Levels",
     status: "upcoming",
-  },
+  },*/
   {
     id: 4,
     title: "The ART of asking AI - Prompt Engineering for everyone",

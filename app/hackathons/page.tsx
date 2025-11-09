@@ -1,3 +1,5 @@
+"use client"
+
 import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/footer"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
@@ -5,90 +7,99 @@ import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Calendar, Clock, Trophy, Users, Code, ArrowRight, ExternalLink, MapPin } from "lucide-react"
 import Link from "next/link"
+import { link } from "fs"
 
-const upcomingHackathons = [
+const ongoingHackathons = [
   {
     id: 1,
-    title: "AI for Social Good Hackathon 2024",
-    description:
-      "Build AI solutions that address real-world social challenges. Focus on healthcare, education, environment, and accessibility.",
-    date: "2024-03-15",
-    endDate: "2024-03-17",
-    location: "IIT Lucknow",
-    duration: "48 hours",
-    participants: 120,
-    maxParticipants: 200,
-    prizePool: "₹2,00,000",
-    status: "upcoming",
-    registrationOpen: true,
-    themes: ["Healthcare", "Education", "Environment", "Accessibility"],
-    sponsors: ["Google", "Microsoft", "NVIDIA"],
-  },
-  {
-    id: 2,
-    title: "TensorFlow Developer Challenge",
-    description:
-      "Showcase your TensorFlow skills by building innovative ML models and applications. Open to all skill levels.",
-    date: "2024-04-20",
-    endDate: "2024-04-21",
-    location: "Online",
-    duration: "36 hours",
-    participants: 85,
-    maxParticipants: 150,
-    prizePool: "₹1,50,000",
-    status: "upcoming",
-    registrationOpen: true,
-    themes: ["Computer Vision", "NLP", "Time Series", "Recommendation Systems"],
-    sponsors: ["TensorFlow", "Kaggle"],
-  },
-]
-
-const pastHackathons = [
-  {
-    id: 3,
-    title: "Lucknow AI Hackathon 2023",
+    title: "Lucknow AI Hackathon 2025",
     description:
       "Our inaugural hackathon focused on building AI solutions for smart city initiatives and urban challenges.",
-    date: "2023-11-10",
-    endDate: "2023-11-12",
-    location: "IIIT Lucknow",
-    duration: "48 hours",
-    participants: 95,
+    date: "2025-11-06",
+    endDate: "2025-11-06",
+    location: "Multi-Venue",
+    duration: "6 hours",
+    participants: "250+",
     prizePool: "₹1,00,000",
-    status: "completed",
+    status: "ongoing",
     themes: ["Smart City", "Transportation", "Waste Management", "Energy"],
     winners: [
       { position: "1st", team: "SmartTraffic AI", prize: "₹50,000" },
       { position: "2nd", team: "EcoWaste Solutions", prize: "₹30,000" },
       { position: "3rd", team: "Energy Optimizer", prize: "₹20,000" },
     ],
-  },
+    rulesLink: "https://example.com/lucknow-ai-hackathon-rules",
+  }
+]
+
+const upcomingHackathons = [
+  /*{
+    id: 1,
+    title: "Lucknow AI Hackathon 2025",
+    description:
+      "Our inaugural hackathon focused on building AI solutions for smart city initiatives and urban challenges.",
+    date: "2025-11-06",
+    endDate: "2025-11-06",
+    location: "Multi-Venue",
+    duration: "6 hours",
+    participants: "250+",
+    prizePool: "₹1,00,000",
+    status: "",
+    themes: ["HealthTech", "FinTech", "Cyber Security", "EduTech", "AgriTech"],
+    rulesLink: "https://example.com/lucknow-ai-hackathon-rules",
+    winners: [
+      { position: "1st", team: "SmartTraffic AI", prize: "₹50,000" },
+      { position: "2nd", team: "EcoWaste Solutions", prize: "₹30,000" },
+      { position: "3rd", team: "Energy Optimizer", prize: "₹20,000" },
+    ],
+  },*/
+  
+]
+
+const pastHackathons = [
+   {
+     id: 3,
+     title: "Lucknow AI Hackathon 2025",
+     description:
+       "Our inaugural hackathon focused on building AI solutions for smart city initiatives and urban challenges.",
+     date: "2025-11-06",
+     endDate: "2025-11-06",
+     location: "Multi-Venue",
+     duration: "6 hours",
+     participants: "250+",
+     /*prizePool: "₹1,00,000",*/
+     status: "completed",
+     themes: ["HealthTech", "FinTech", "Cyber Security", "EduTech", "AgriTech"],
+     winners: [
+       { position: "1st", team: "Guardial | Your LLM Gaurd", link: "https://github.com/ACE-codes21/Gaurdial" },
+       { position: "2nd", team: "PhysioCoachAi", link: "https://github.com/Python-kunal/physio_app" },
+       { position: "3rd", team: "Samvedna", link: "https://github.com/shikhar1809/Samvedna_GenAi_Hackathon_Main" },
+       { position: "Best Innovative Usecase", team: "Chronic AI", link: "https://github.com/prateek-workspace/chronic-ai-agent" },
+     ],
+   },
   {
-    id: 4,
-    title: "Student AI Innovation Challenge",
+    id: 2,
+    title: "VIVEKA THE INTELLIGENCE : 4.0",
     description:
       "A hackathon exclusively for students to encourage innovation and learning in artificial intelligence.",
-    date: "2023-09-15",
-    endDate: "2023-09-16",
-    location: "Amity University Lucknow",
-    duration: "24 hours",
-    participants: 60,
-    prizePool: "₹75,000",
+    date: "2025-02-05",
+    endDate: "2025-02-08",
+    location: "Shri Ramswaroop Memorial University",
+    duration: "48+ hours",
+    participants: "400+",
+    /*prizePool: "₹75,000",*/
     status: "completed",
-    themes: ["Education Tech", "Student Life", "Campus Solutions"],
-    winners: [
-      { position: "1st", team: "StudyBuddy AI", prize: "₹40,000" },
-      { position: "2nd", team: "Campus Navigator", prize: "₹25,000" },
-      { position: "3rd", team: "Attendance Tracker", prize: "₹10,000" },
-    ],
+    themes: ["Mental health and stress management solutions", "Smart study planning tools", "Technology ethics education", "Urban planning for Lucknow city", "Personalized learning systems", "Campus event notification platforms", "Classroom participation tools",  "Paper grading assistance systems",  "Open category - solve any real-world problem"],
   },
 ]
 
 function HackathonCard({ hackathon, isPast = false }: { hackathon: any; isPast?: boolean }) {
   const getStatusColor = (status: string) => {
     switch (status) {
-      case "upcoming":
+      case "ongoing":
         return "bg-green-100 text-green-800 dark:bg-green-900/20 dark:text-green-400"
+      case "upcoming":
+        return "bg-orange-100 text-green-800 dark:bg-green-900/20 dark:text-green-400"
       case "completed":
         return "bg-blue-100 text-blue-800 dark:bg-blue-900/20 dark:text-blue-400"
       default:
@@ -102,7 +113,12 @@ function HackathonCard({ hackathon, isPast = false }: { hackathon: any; isPast?:
         <div className="flex items-start justify-between">
           <div className="space-y-2">
             <Badge className={getStatusColor(hackathon.status)}>
-              {hackathon.status === "upcoming" ? "Upcoming" : "Completed"}
+              {hackathon.status === "upcoming"
+                ? "Upcoming"
+                : hackathon.status === "ongoing"
+                ? "Ongoing"
+                : "Completed"
+              }
             </Badge>
             <CardTitle className="text-xl">{hackathon.title}</CardTitle>
           </div>
@@ -181,11 +197,24 @@ function HackathonCard({ hackathon, isPast = false }: { hackathon: any; isPast?:
               <h4 className="text-sm font-medium text-foreground mb-2">Winners</h4>
               <div className="space-y-1">
                 {hackathon.winners.map((winner: any) => (
-                  <div key={winner.position} className="flex justify-between text-sm">
+                  <div key={winner.position} className="flex justify-between text-sm items-center">
                     <span className="text-muted-foreground">
                       {winner.position}: {winner.team}
                     </span>
-                    <span className="font-medium text-secondary">{winner.prize}</span>
+                    {/* If this is a past hackathon and a project link is provided, show the link; otherwise show prize text (fallback) */}
+                    {isPast && winner.link ? (
+                      <a
+                        href={winner.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="font-medium text-secondary inline-flex items-center gap-2 hover:underline"
+                      >
+                        View Project
+                        <ExternalLink className="h-4 w-4" />
+                      </a>
+                    ) : (
+                      <span className="font-medium text-secondary">{winner.prize}</span>
+                    )}
                   </div>
                 ))}
               </div>
@@ -197,6 +226,13 @@ function HackathonCard({ hackathon, isPast = false }: { hackathon: any; isPast?:
               <Button className="w-full">
                 Register Now
                 <ArrowRight className="ml-2 h-4 w-4" />
+              </Button>
+            </div>
+          )}
+          {hackathon.rulesLink && (
+            <div className="pt-4">
+              <Button variant="secondary" className="w-full" onClick={() => window.open(hackathon.rulesLink, "_blank")} >
+                Rules & Guidelines
               </Button>
             </div>
           )}
