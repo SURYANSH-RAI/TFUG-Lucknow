@@ -91,6 +91,20 @@ const pastHackathons = [
     status: "completed",
     themes: ["Mental health and stress management solutions", "Smart study planning tools", "Technology ethics education", "Urban planning for Lucknow city", "Personalized learning systems", "Campus event notification platforms", "Classroom participation tools",  "Paper grading assistance systems",  "Open category - solve any real-world problem"],
   },
+  {
+    id: 1,
+    title: "Hack to Crack 1.0",
+    description:
+      "Join us for an exciting AI/ML Hackathon where innovation meets creativity! Tackle real-world challenges using artificial intelligence and machine learning while collaborating with brilliant minds from diverse backgrounds. Whether you're a beginner or an expert, explore domains like computer vision, NLP, and reinforcement learning to build solutions that make an impact. Open to students, professionals, and enthusiasts — if you’re passionate about AI and ready to innovate, this is your stage to shine!",
+    date: "2024-05-23",
+    endDate: "2024-05-25",
+    location: "Shri Ramswaroop Memorial University",
+    duration: "36+ hours",
+    participants: "250+",
+    /*prizePool: "₹75,000",*/
+    status: "completed",
+    themes: ["Computer Vision", "Natural Language Processing (NLP)", "Reinforcement Learning", "Predictive Modeling & Data Analytics", "AI for Social Good",  "Automation & Smart Systems",  "Real-World Problem Solving with AI/ML"],
+  },
 ]
 
 function HackathonCard({ hackathon, isPast = false }: { hackathon: any; isPast?: boolean }) {

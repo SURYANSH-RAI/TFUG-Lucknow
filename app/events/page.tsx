@@ -7,22 +7,22 @@ import { Calendar, Clock, MapPin, Users, ExternalLink, ArrowRight } from "lucide
 import Link from "next/link"
 
 const upcomingEvents = [
-  // { 
-  //   id: 1,
-  //   title: "AI Day",
-  //   description:
-  //     "A beginner-friendly event focused on AI, featuring sessions for all levels and hands-on offline experiences.",
-  //   date: "",
-  //   time: "TBA",
-  //   location: "TBA",
-  //   attendees: 0,
-  //   // maxAttendees: 0,
-  //   type: "Offline",
-  //   level: "Sessions",
-  //   tags: [ "All Levels"],
-  //   registrationLink: "",
-  //   status: "upcoming",
-  // },
+   /*{ 
+     id: 1,
+     title: "AI Day",
+     description:
+       "A beginner-friendly event focused on AI, featuring sessions for all levels and hands-on offline experiences.",
+     date: "",
+     time: "TBA",
+     location: "TBA",
+     attendees: 0,
+     maxAttendees: 0,
+     type: "Offline",
+     level: "Sessions",
+     tags: [ "All Levels"],
+     registrationLink: "",
+     status: "upcoming",
+   },*/
   /*{
     id: 2,
     title: "ML Fundamentals and hands-on ML Projects & Application",
@@ -37,7 +37,7 @@ const upcomingEvents = [
     level: "Intermediate",
     status: "upcoming",
   },
-  {
+  /*{
     id: 3,
     title: "DL Fundamentals and hands-on DL Projects & Application",
     description:
@@ -51,7 +51,7 @@ const upcomingEvents = [
     level: "All Levels",
     status: "upcoming",
   },*/
-  {
+  /*{
     id: 4,
     title: "The ART of asking AI - Prompt Engineering for everyone",
     description:
@@ -64,60 +64,101 @@ const upcomingEvents = [
     type: "Talk",
     level: "All Levels",
     status: "completed",
-  },
-  // {
-  //   id: 5,
-  //   title: "AI in Healthcare: Real-world Applications",
-  //   description:
-  //     "Expert talk on how AI and ML are revolutionizing healthcare, featuring case studies and practical implementations.",
-  //   date: "2024-03-10",
-  //   time: "6:00 PM - 8:00 PM",
-  //   location: "Online Event",
-  //   attendees: 120,
-  //   maxAttendees: 200,
-  //   type: "Talk",
-  //   level: "All Levels",
-  //   status: "upcoming", //to activate put the registration link and leave status with no input
-  // },
+  },*/
+   /*{
+     id: 5,
+     title: "AI in Healthcare: Real-world Applications",
+     description:
+       "Expert talk on how AI and ML are revolutionizing healthcare, featuring case studies and practical implementations.",
+     date: "2024-03-10",
+     time: "6:00 PM - 8:00 PM",
+     location: "Online Event",
+     attendees: 120,
+     maxAttendees: 200,
+     type: "Talk",
+     level: "All Levels",
+     status: "upcoming", //to activate put the registration link and leave status with no input
+   },*/
 ]
 
 const pastEvents = [
   {
-    id: 1,
-    title: "Deep Learning Fundamentals",
+    id: 6,
+    title: "AI Agent Arsenal: Building Powerful Tools with ADK: Pre-Hackathon Session 4 (Study Jam)",
     description:
-      "Comprehensive introduction to deep learning concepts, neural networks, and practical implementation using TensorFlow.",
-    date: "2024-01-20",
-    time: "2:00 PM - 6:00 PM",
-    location: "Amity University Lucknow",
-    attendees: 55,
+      "Build AI agents that act — not just chat. With Google’s Agent Development Kit (ADK), you’ll learn to create powerful, tool-using agents that go beyond conversation. Develop systems that can search the web in real time, process and analyze documents, call APIs, and execute complex multi-step workflows. These agents don’t just talk — they do. You’ll master the difference between simple chatbots and truly autonomous, action-oriented agents that solve real-world problems. This is next-level innovation — the kind of project that turns heads at hackathons and beyond.",
+    date: "2025-11-04",
+    time: "08:00 PM - 09:00 PM",
+    location: "Virtual (Commudle)",
+    attendees: "70+",
+    type: "Workshop",
+    level: "All Levels",
+    status: "completed",
+  },
+
+  {
+    id: 5,
+    title: "Getting an edge with custom tuned model Gemma: Pre Hackathon session 3 (Study Jam)",
+    description:
+      "Generic models deliver generic results — but fine-tuning Gemma unlocks the power of true specialization. Learn how to create custom models tailored to your unique domain, giving you an edge that sets you apart from the competition. Dive deep into the Gemma architecture to understand how it works under the hood, and master fine-tuning techniques that transform base models into precision tools. Explore domain-specific optimization methods, performance evaluation metrics, and seamless deployment strategies for your custom models. Because in the world of AI, specialization is the ultimate advantage.",
+    date: "2025-11-03",
+    time: "08:00 PM - 09:00 PM",
+    location: "Virtual (Commudle)",
+    attendees: "60+",
+    type: "Workshop",
+    level: "All Levels",
+    status: "completed",
+  },
+
+  {
+    id: 4,
+    title: "Building production application using Gemini CLI : Pre Hackathon session 2 (Study Jam)",
+    description:
+      "Skip the GUI and step into the true power of the command line! Discover how to harness the Gemini CLI to prototype, test, and deploy AI applications faster than ever before. From your terminal to full-scale production, learn how to streamline every step of your development workflow. Master CLI setup and configuration, build rapid prototypes, and implement deployment strategies designed for real-world scalability. You’ll also explore automation, scripting, and best practices that transform simple commands into powerful tools for innovation. From terminal to triumph — build smarter, faster, and stronger with the Gemini CLI.",
+    date: "2025-11-02",
+    time: "08:00 PM - 09:00 PM",
+    location: "Virtual (Commudle)",
+    attendees: "100+",
+    type: "Workshop",
+    level: "All Levels",
+    status: "completed",
+  },
+  {
+    id: 3,
+    title: "Optimizing prompts for efficient Gemini API results and building speedy applications using tools: Pre Hackathon session 1 (Study Jam)",
+    description:
+      "Unlock the hidden power of the Gemini API with advanced prompt engineering and optimization techniques designed to give you a true competitive edge. Learn how to craft efficient, high-impact prompts that deliver consistent and intelligent results. Master the art of building real-world applications at lightning speed using streamlined API creation strategies. Gain control over every token with smart management practices that reduce latency and cost, while ensuring precision in every response. You’ll also dive into real-time performance tuning, caching, and optimization tricks that take your apps from concept to production-ready in record time. Because in the world of AI — speed is victory.",
+    date: "2025-11-01",
+    time: "08:00 PM - 09:00 PM",
+    location: "Virtual (Commudle)",
+    attendees: "100+",
+    type: "Workshop",
+    level: "All Levels",
+    status: "completed",
+  },
+  {
+    id: 2,
+    title: "Session 2: Machine Learning Fundamentals with hands-on | ML Study Jam - Lucknow",
+    description:
+      "A comprehensive introduction to the core principles and workflows of Machine Learning, guiding learners through both supervised and unsupervised learning concepts. Participants will gain practical experience through hands-on coding sessions with real datasets using Google Colab, where they’ll learn how to train and evaluate models effectively. The program also emphasizes industry best practices, offering insights and tips from experienced professionals. To deepen understanding, the course features live coding demonstrations and interactive Q&A sessions, ensuring participants can apply their knowledge confidently in real-world scenarios.",
+    date: "2024-10-19",
+    time: "8:00 AM - 9:30 PM",
+    location: "Virtual (Commudle)",
+    attendees: "70+",
     type: "Workshop",
     level: "Beginner",
     status: "completed",
   },
   {
-    id: 2,
-    title: "Natural Language Processing with Transformers",
-    description:
-      "Advanced workshop on NLP techniques, transformer models, and building chatbots using modern ML frameworks.",
-    date: "2024-01-05",
-    time: "10:00 AM - 4:00 PM",
-    location: "BBAU Lucknow",
-    attendees: 38,
-    type: "Workshop",
-    level: "Advanced",
-    status: "completed",
-  },
-  {
-    id: 3,
-    title: "AI Community Lucknow Inaugural Meetup",
-    description: "Our first community meetup introducing AI Community Lucknow, networking session, and roadmap discussion.",
-    date: "2023-12-15",
-    time: "5:00 PM - 8:00 PM",
-    location: "Hotel Clarks Avadh",
-    attendees: 75,
-    type: "Meetup",
-    level: "All Levels",
+    id: 1,
+    title: "Session 1: The Art of Asking AI – Prompt Engineering for Everyone | ML Study Jam - Lucknow",
+    description: "Learn how to write powerful prompts that elicit high-quality AI responses by mastering advanced techniques such as Few-shot, Chain-of-Thought, Self-Consistency, Role-based prompting, System prompting, and the ReAct framework. Gain control over AI creativity using Temperature and Top-p parameters, and effectively handle complex reasoning and problem-solving tasks. This skill set will help you avoid common AI mistakes that waste time and enable you to communicate clearly and efficiently with any AI chatbot for consistently better results.",
+    date: "2025-10-19",
+    time: "8:00 PM - 9:30 PM",
+    location: "Virtual (Commudle)",
+    attendees: "75+",
+    type: "Session",
+    level: "Beginner",
     status: "completed",
   },
 ]
