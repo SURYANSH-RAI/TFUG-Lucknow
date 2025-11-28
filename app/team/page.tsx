@@ -6,7 +6,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-import { Github, Linkedin, Twitter, Mail, Users, Heart, Star, ChevronDown, ChevronUp } from "lucide-react"
+import { Github, Linkedin, Twitter, Mail, Users, Heart, Star} from "lucide-react"
 import Link from "next/link"
 import { useState } from "react"
 import ProfileCard from "@/components/ProfileCard"
@@ -23,149 +23,76 @@ const coreTeam = [
     social: {
       linkedin: "prashant-shukla30",
     },
-  },
-  /*{
-    id: 2,
-    name: "Aaditya Ura",
-    role: "Technical Lead",
-    bio: "Senior Data Scientist specializing in NLP and MLOps. PhD in Computer Science from IIT Kanpur. Loves mentoring aspiring AI practitioners.",
-    image: "/professional-data-scientist.png",
-    expertise: ["NLP", "MLOps", "Research", "Mentoring"],
-    social: {
-      github: "arjungupta",
-      linkedin: "arjun-gupta-ds",
-      twitter: "arjun_nlp",
-      email: "arjun@tfuglucknow.org",
-    },
-  },
-  {
-    id: 3,
-    name: "Abhishek Sahu",
-    role: "Events Coordinator",
-    bio: "Product Manager with expertise in AI/ML product development. Experienced in organizing tech events and building developer communities.",
-    image: "/professional-woman-product-manager.png",
-    expertise: ["Product Management", "Event Planning", "AI Strategy"],
-    social: {
-      github: "snehaverma",
-      linkedin: "sneha-verma-pm",
-      email: "sneha@tfuglucknow.org",
-    },
-  },
-  },*/
+  }
 ]
 
 const volunteersByYear = {
   2025: [
     // Coming soon...
-    /* {
-      name: "Priya Singh",
-      role: "Event Coordinator",
-      expertise: ["Event Management", "Community Building"],
-      image: "/professional-woman-product-manager.png",
-      url: "https://linkedin.com/in/priya-singh",
-    },
-    {
-      name: "Rahul Kumar",
-      role: "Tech Lead",
-      expertise: ["Full Stack Development", "Mentoring"],
-      image: "/professional-man-full-stack-developer.jpg",
-      url: "https://linkedin.com/in/rahul-kumar",
-    },
-    {
-      name: "Sneha Patel",
-      role: "Content Creator",
-      expertise: ["Technical Writing", "Social Media"],
-      image: "/professional-woman-content-creator.jpg",
-      url: "https://linkedin.com/in/sneha-patel",
-    }, */
   ],
   2024: [
     {
       name: "Suryansh Rai",
-      //role: "Design Lead",
-      //expertise: ["UI/UX Design", "Brand Design"],
       image: "/Suryansh.jpg",
       url: "https://linkedin.com/in/suryansh-rai",
     },
     {
       name: "Zuhaib Khan",
-      //role: "Logistics Coordinator",
-     // expertise: ["Event Logistics", "Vendor Management"],
       image: "/Zuhaib.jpg",
       url: "https://www.linkedin.com/in/mohd-zuhaib-khan/",
     },
     {
       name: "Ayush Sharma",
-      //role: "Student Ambassador",
-     //expertise: ["Student Outreach", "Campus Relations"],
       image: "/AyushS.jpg",
       url: "https://linkedin.com/in/aayush9119",
     },
     {
       name: "Anshul Yadav",
-     //role: "Community Outreach",
-      //expertise: ["Partnership Building", "Networking"],
       image: "/AnshulY.png",
       url: "https://linkedin.com/in/anshul-yadav-0479111b1",
     },
     {
       name: "Arooj Pandey",
-     //role: "Content Strategist",
-      //expertise: ["Content Planning", "SEO"],
       image: "/Arooj.jpeg",
       url: "https://www.linkedin.com/in/arooj-pandey-677552260/",
     },
     {
       name: "Abhishek Verma",
-      //role: "Technical Mentor",
-      //expertise: ["Code Review", "Mentoring"],
       image: "/AbhishekV.jpeg",
       url: "https://www.linkedin.com/in/abhishek-verma-jnv/",
     },
     {
       name: "Nancy Srivastava",
-      //role: "Design Lead",
-      //expertise: ["UI/UX Design", "Brand Design"],
       image: "/Nancy.jpeg",
       url: "https://www.linkedin.com/in/nancy-srivastava-92969b1b6/",
     },
     {
       name: "Hitanshu",
-      //role: "Logistics Coordinator",
-      //expertise: ["Event Logistics", "Vendor Management"],
       image: "/Hitanshu.jpg",
       url: "https://www.linkedin.com/in/hitanshu-tandon/",
     },
     {
       name: "Amar Deep Rao",
-      //role: "Student Ambassador",
-      //expertise: ["Student Outreach", "Campus Relations"],
       image: "/AmarDR.jpeg",
       url: "https://www.linkedin.com/in/amardeep16/",
     },
     {
-      name: "Aksaht trivedi",
-      //role: "Community Outreach",
-      //expertise: ["Partnership Building", "Networking"],
+      name: "Akshat trivedi",
       image: "/AkshatT.jpg",
       url: "https://www.linkedin.com/in/akshat-trivedi-600040240/",
     },
     {
       name: "Akshat Vadera",
-      //role: "Content Strategist",
-     // expertise: ["Content Planning", "SEO"],
       image: "/AkshatV.png",
       url: "https://www.linkedin.com/in/akshatvadera/",
     },
     {
       name: "Devnandini",
-      //role: "Technical Mentor",
-      //expertise: ["Code Review", "Mentoring"],
       image: "/Devnandini.png",
       url: "https://www.linkedin.com/in/devanandini-183853287/",
     },
   ],
-  }
+}
 
 const techLeaders = [
   {
@@ -186,7 +113,6 @@ const techLeaders = [
     linkedin: "https://www.linkedin.com/in/anshul-yadav-0479111b1/",
     webpage: "https://anshul-yadav.vercel.app/",
   },
-  
 ]
 
 function TeamMemberCard({ member, isCore = false }: { member: any; isCore?: boolean }) {
@@ -318,7 +244,6 @@ function VolunteersSection() {
                   items={volunteersByYear[selectedYear as keyof typeof volunteersByYear].map((volunteer, index) => ({
                     image: volunteer.image || "/placeholder.svg",
                     title: volunteer.name,
-                    subtitle: volunteer.role,
                     handle: `@${volunteer.name.toLowerCase().replace(/\s+/g, '')}`,
                     borderColor: ['#4F46E5', '#10B981', '#F59E0B', '#EF4444', '#8B5CF6', '#06B6D4'][index % 6],
                     gradient: `linear-gradient(${135 + (index * 30)}deg, ${['#4F46E5', '#10B981', '#F59E0B', '#EF4444', '#8B5CF6', '#06B6D4'][index % 6]}, #000)`,
@@ -503,7 +428,7 @@ export default function TeamPage() {
               Meet the dedicated individuals who lead and organize our community activities.
             </p>
           </div>
-          <div className="mx-auto mt-8 xs:mt-10 sm:mt-16 flex flex-wrap justify-center items-center gap-4 xs:gap-6 sm:gap-8 lg:gap-12">
+          <div className="w-full mx-auto mt-8 xs:mt-10 sm:mt-16 flex flex-wrap justify-center items-center gap-4 xs:gap-6 sm:gap-8 lg:gap-12">
             {coreTeam.map((member) => (
               <div key={member.id} className="flex justify-center">
                 <ProfileCard
@@ -607,7 +532,6 @@ export default function TeamPage() {
           </div>
         </div>
       </section>
-
       <Footer />
     </div>
   )

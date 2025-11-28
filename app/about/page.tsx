@@ -180,19 +180,21 @@ export default function AboutPage() {
             </p>
             <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
               <Badge variant="outline" className="px-4 py-2 text-sm sm:text-base whitespace-nowrap">
-                Students Welcome
+                Students
               </Badge>
               <Badge variant="outline" className="px-4 py-2 text-sm sm:text-base whitespace-nowrap">
-                All Skill Levels
+                Professionals
               </Badge>
               <Badge variant="outline" className="px-4 py-2 text-sm sm:text-base whitespace-nowrap">
-                Free Events
+                Sponsors
+              </Badge>
+              <Badge variant="outline" className="px-4 py-2 text-sm sm:text-base whitespace-nowrap">
+                Enthusiasts
               </Badge>
             </div>
           </div>
         </div>
       </section>
-
       <Footer />
     </div>
   )

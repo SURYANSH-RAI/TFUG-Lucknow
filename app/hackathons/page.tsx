@@ -7,54 +7,6 @@ import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Calendar, Clock, Trophy, Users, Code, ArrowRight, ExternalLink, MapPin } from "lucide-react"
 import Link from "next/link"
-import { link } from "fs"
-
-const ongoingHackathons = [
-  {
-    id: 1,
-    title: "Lucknow AI Hackathon 2025",
-    description:
-      "Our inaugural hackathon focused on building AI solutions for smart city initiatives and urban challenges.",
-    date: "2025-11-06",
-    endDate: "2025-11-06",
-    location: "Multi-Venue",
-    duration: "6 hours",
-    participants: "250+",
-    prizePool: "₹1,00,000",
-    status: "ongoing",
-    themes: ["Smart City", "Transportation", "Waste Management", "Energy"],
-    winners: [
-      { position: "1st", team: "SmartTraffic AI", prize: "₹50,000" },
-      { position: "2nd", team: "EcoWaste Solutions", prize: "₹30,000" },
-      { position: "3rd", team: "Energy Optimizer", prize: "₹20,000" },
-    ],
-    rulesLink: "https://example.com/lucknow-ai-hackathon-rules",
-  }
-]
-
-const upcomingHackathons = [
-  /*{
-    id: 1,
-    title: "Lucknow AI Hackathon 2025",
-    description:
-      "Our inaugural hackathon focused on building AI solutions for smart city initiatives and urban challenges.",
-    date: "2025-11-06",
-    endDate: "2025-11-06",
-    location: "Multi-Venue",
-    duration: "6 hours",
-    participants: "250+",
-    prizePool: "₹1,00,000",
-    status: "",
-    themes: ["HealthTech", "FinTech", "Cyber Security", "EduTech", "AgriTech"],
-    rulesLink: "https://example.com/lucknow-ai-hackathon-rules",
-    winners: [
-      { position: "1st", team: "SmartTraffic AI", prize: "₹50,000" },
-      { position: "2nd", team: "EcoWaste Solutions", prize: "₹30,000" },
-      { position: "3rd", team: "Energy Optimizer", prize: "₹20,000" },
-    ],
-  },*/
-  
-]
 
 const pastHackathons = [
    {
@@ -291,11 +243,6 @@ export default function HackathonsPage() {
               Get ready for these exciting competitions coming up. Register early to secure your spot!
             </p>
           </div>
-          <div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-8 sm:mt-20 lg:mx-0 lg:max-w-none lg:grid-cols-2">
-            {upcomingHackathons.map((hackathon) => (
-              <HackathonCard key={hackathon.id} hackathon={hackathon} />
-            ))}
-          </div>
         </div>
       </section>
 
@@ -484,7 +431,6 @@ export default function HackathonsPage() {
           </div>
         </div>
       </section>
-
       <Footer />
     </div>
   )
