@@ -28,7 +28,6 @@ const coreTeam = [
 
 const volunteersByYear = {
   2025: [
-<<<<<<< HEAD
      {
       name: "Suryansh Rai",
       //role: "Event Coordinator",
@@ -155,10 +154,6 @@ const volunteersByYear = {
       image: "/AbhishekA.jpg",
       url: "https://www.linkedin.com/in/devabhishekagrahari/",
     },
-    
-=======
-    // Coming soon...
->>>>>>> 949795bdf95751b1a7d11d72313f2ce0ac284215
   ],
   2024: [
     {
@@ -374,6 +369,7 @@ function VolunteersSection() {
                   items={volunteersByYear[selectedYear as keyof typeof volunteersByYear].map((volunteer, index) => ({
                     image: volunteer.image || "/placeholder.svg",
                     title: volunteer.name,
+                    subtitle: volunteer.name.toLowerCase().replace(/\s+/g, ''),
                     handle: `@${volunteer.name.toLowerCase().replace(/\s+/g, '')}`,
                     borderColor: ['#4F46E5', '#10B981', '#F59E0B', '#EF4444', '#8B5CF6', '#06B6D4'][index % 6],
                     gradient: `linear-gradient(${135 + (index * 30)}deg, ${['#4F46E5', '#10B981', '#F59E0B', '#EF4444', '#8B5CF6', '#06B6D4'][index % 6]}, #000)`,
