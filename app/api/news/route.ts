@@ -1,261 +1,165 @@
 import { NextRequest, NextResponse } from 'next/server';
 
-// Medium RSS feeds for AI/ML content  
-const MEDIUM_RSS_FEEDS = [
+const MEDIUM_FEEDS = [
   'https://medium.com/feed/tag/artificial-intelligence',
   'https://medium.com/feed/tag/machine-learning',
-  'https://medium.com/feed/tag/deep-learning'
+  'https://medium.com/feed/tag/generative-ai',
+  'https://medium.com/feed/towards-data-science',
+  'https://medium.com/feed/towards-ai'
 ];
 
-// Helper to extract data from RSS text using regex (no XML parser needed)
-function parseRSSText(rssText: string) {
-  const articles = [];
+// Fixes the &#x... error
+function cleanText(html: string) {
+  if (!html) return '';
   
-  // Split by <item> tags
-  const items = rssText.split('<item>').slice(1); // Remove first empty element
-  
-  for (let i = 0; i < Math.min(items.length, 8); i++) {
-    const item = items[i];
-    
-    // Extract title
-    const titleMatch = item.match(/<title><!\[CDATA\[(.*?)\]\]><\/title>/);
-    const title = titleMatch ? titleMatch[1].trim() : 'Untitled';
-    
-    // Extract link
-    const linkMatch = item.match(/<link>(.*?)<\/link>/);
-    const link = linkMatch ? linkMatch[1].trim() : '#';
-    
-    // Extract pubDate
-    const pubDateMatch = item.match(/<pubDate>(.*?)<\/pubDate>/);
-    const pubDate = pubDateMatch ? pubDateMatch[1] : new Date().toISOString();
-    
-    // Extract description/content
-    const descMatch = item.match(/<description><!\[CDATA\[([\s\S]*?)\]\]><\/description>/);
-    const rawDescription = descMatch ? descMatch[1] : '';
-    
-    // Extract image from description
-    const imgMatch = rawDescription.match(/<img[^>]+src=["']([^"']+)["']/);
-    const coverImage = imgMatch ? imgMatch[1] : null;
-    
-    // Clean description
-    const cleanDescription = rawDescription
-      .replace(/<[^>]*>/g, '')
-      .replace(/&nbsp;/g, ' ')
-      .replace(/&amp;/g, '&')
-      .replace(/&quot;/g, '"')
-      .replace(/&#x27;/g, "'")
-      .replace(/&lt;/g, '<')
-      .replace(/&gt;/g, '>')
-      .substring(0, 200)
-      .trim() + '...';
-    
-    if (title && link && title !== 'Untitled') {
-      articles.push({
-        id: `medium-${Date.now()}-${i}`,
-        title,
-        url: link,
-        coverImage,
-        createdAt: new Date(pubDate).toISOString(),
-        description: cleanDescription || 'Read this interesting article on Medium...',
-        tags: ['AI', 'Machine Learning', 'Medium']
-      });
-    }
+  let text = html
+    // Remove all HTML tags first
+    .replace(/<[^>]*>/g, '')
+    // FIX: Specific Hex Entities found in your screenshot
+    .replace(/&#x2019;/g, "'")   // Smart Apostrophe -> '
+    .replace(/&#x2018;/g, "'")   // Left Smart Quote -> '
+    .replace(/&#x201C;/g, '"')   // Left Double Quote -> "
+    .replace(/&#x201D;/g, '"')   // Right Double Quote -> "
+    .replace(/&#x2014;/g, '—')   // Em Dash -> —
+    .replace(/&#x2013;/g, '-')   // En Dash -> -
+    .replace(/&#x200A;/g, ' ')   // Hair Space -> Space
+    .replace(/&#xA0;/g, ' ')     // Non-breaking space
+    // Standard Entities
+    .replace(/&nbsp;/g, ' ')
+    .replace(/&amp;/g, '&')
+    .replace(/&quot;/g, '"')
+    .replace(/&#x27;/g, "'")
+    .replace(/&lt;/g, '<')
+    .replace(/&gt;/g, '>')
+    // Remove Medium Footer Garbage
+    .replace(/Continue reading on.*$/i, '')
+    .replace(/Read more.*/i, '')
+    // Collapse multiple spaces into one
+    .replace(/\s+/g, ' ')
+    .trim();
+
+  // Clean Truncate
+  if (text.length > 180) {
+    text = text.substring(0, 180).trim() + '...';
   }
-  
-  return articles;
+  return text;
 }
 
-// Helper to fetch and filter news from Medium
-async function fetchAINews() {
-  try {
-    const allArticles: any[] = [];
-    
-    // Fetch from Medium RSS feeds
-    for (const feedUrl of MEDIUM_RSS_FEEDS) {
-      try {
-        const response = await fetch(feedUrl, {
-          headers: {
-            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
-            'Accept': 'application/rss+xml, application/xml, text/xml'
-          }
-        });
+// image extractor
+function extractImage(content: string) {
+  // Priority 1: Look for Medium's CDN image (usually high res)
+  const cdnMatch = content.match(/src="(https:\/\/cdn-images-1\.medium\.com\/[^"]+)"/);
+  if (cdnMatch) return cdnMatch[1];
+
+  // Priority 2: Look for any standard image tag
+  const imgMatch = content.match(/<img[^>]+src="([^">]+)"/);
+  if (imgMatch) return imgMatch[1];
+
+  // Priority 3: Look for image in <figure> tags (common in Medium)
+  const figureMatch = content.match(/<figure>.*?<img.*?src="(.*?)".*?<\/figure>/);
+  if (figureMatch) return figureMatch[1];
+
+  return null;
+}
+
+// No "Copied" Images
+// Generates a consistent "random" image based on the title's letters.
+function getFallbackImage(title: string) {
+  const images = [
+    'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&q=80', // Robot Hand
+    'https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=800&q=80', // AI Brain
+    'https://images.unsplash.com/photo-1555255707-c07966088b7b?w=800&q=80', // Data Stream
+    'https://images.unsplash.com/photo-1617791160505-6f00504e3519?w=800&q=80', // Abstract Nodes
+    'https://images.unsplash.com/photo-1535378437268-27696130a8f5?w=800&q=80', // Circuit Board
+    'https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&q=80', // Chip
+  ];
+  // Sum char codes to get a pseudo-random index that stays constant for the same title
+  const sum = title.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0);
+  return images[sum % images.length];
+}
+
+async function fetchMediumNews() {
+  const allArticles: any[] = [];
+
+  await Promise.all(MEDIUM_FEEDS.map(async (url) => {
+    try {
+      const res = await fetch(url, { next: { revalidate: 3600 } });
+      if (!res.ok) return;
+      const text = await res.text();
+      
+      // Split by <item> to isolate articles
+      const items = text.split('<item>');
+      
+      for (let i = 1; i < items.length; i++) {
+        const item = items[i];
         
-        if (!response.ok) {
-          console.warn(`Failed to fetch ${feedUrl}: ${response.status}`);
-          continue;
+        // Extract Fields
+        const titleMatch = item.match(/<title>(?:<!\[CDATA\[)?(.*?)(?:\]\]>)?<\/title>/);
+        const title = titleMatch ? titleMatch[1] : 'Untitled';
+
+        const linkMatch = item.match(/<link>(.*?)<\/link>/);
+        const link = linkMatch ? linkMatch[1] : '';
+
+        const dateMatch = item.match(/<pubDate>(.*?)<\/pubDate>/);
+        const pubDate = dateMatch ? dateMatch[1] : new Date().toISOString();
+
+        // Medium puts the full content in <content:encoded>
+        const contentMatch = item.match(/<content:encoded>(?:<!\[CDATA\[)?([\s\S]*?)(?:\]\]>)?<\/content:encoded>/);
+        const rawContent = contentMatch ? contentMatch[1] : '';
+
+        // Fallback to description if content is missing
+        const descMatch = item.match(/<description>(?:<!\[CDATA\[)?([\s\S]*?)(?:\]\]>)?<\/description>/);
+        const rawDesc = descMatch ? descMatch[1] : '';
+
+        // 1. Get Image (Try Content first, then Description, then Fallback)
+        const fullHtml = rawContent || rawDesc; 
+        const image = extractImage(fullHtml) || getFallbackImage(title);
+
+        // 2. Get Text (Prefer Description for summary, but clean it)
+        const description = cleanText(rawDesc || rawContent);
+
+        if (title !== 'Untitled' && link) {
+          allArticles.push({
+            title: cleanText(title), // Clean title too just in case
+            url: link,
+            coverImage: image,
+            description,
+            createdAt: new Date(pubDate).toISOString(),
+            source: 'Medium'
+          });
         }
-        
-        const rssText = await response.text();
-        const articles = parseRSSText(rssText);
-        allArticles.push(...articles);
-        
-      } catch (feedError) {
-        console.warn(`Error fetching ${feedUrl}:`, feedError);
-        continue;
       }
+    } catch (e) {
+      console.error(`Error fetching ${url}`, e);
     }
-    
-    // If we got articles from RSS feeds, process them
-    if (allArticles.length > 0) {
-      // Remove duplicates based on URL
-      const uniqueArticles = allArticles.filter((article, index, self) => 
-        index === self.findIndex((a: any) => a.url === article.url)
-      );
-      
-      // Filter for AI/ML content in title or description
-      const aiFilteredArticles = uniqueArticles.filter((article: any) => {
-        const titleLower = article.title.toLowerCase();
-        const descLower = article.description.toLowerCase();
-        
-        return (
-          titleLower.includes('ai') ||
-          titleLower.includes('artificial intelligence') ||
-          titleLower.includes('machine learning') ||
-          titleLower.includes('ml') ||
-          titleLower.includes('deep learning') ||
-          titleLower.includes('neural') ||
-          titleLower.includes('tensorflow') ||
-          titleLower.includes('pytorch') ||
-          titleLower.includes('data science') ||
-          descLower.includes('artificial intelligence') ||
-          descLower.includes('machine learning')
-        );
+  }));
+
+  // Deduplication Logic (Title Fingerprint)
+  const seenTitles = new Set();
+  const uniqueArticles = [];
+
+  // Sort newest first
+  allArticles.sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
+
+  for (const article of allArticles) {
+    const fingerprint = article.title.toLowerCase().replace(/[^a-z0-9]/g, '');
+    if (!seenTitles.has(fingerprint)) {
+      seenTitles.add(fingerprint);
+      uniqueArticles.push({
+        ...article,
+        id: `news-${fingerprint.substring(0, 10)}`
       });
-      
-      // Sort by latest
-      aiFilteredArticles.sort((a: any, b: any) => 
-        new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
-      );
-      
-      return aiFilteredArticles.slice(0, 10);
     }
-    
-    // Fallback: Return sample Medium AI/ML articles if RSS parsing fails
-    return [
-      {
-        id: 'medium-fallback-1',
-        title: 'The Future of Artificial Intelligence: What Experts Predict for 2025',
-        url: 'https://medium.com/towards-data-science/ai-predictions-2025',
-        coverImage: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&h=400&fit=crop',
-        createdAt: new Date(Date.now() - 1000 * 60 * 60 * 2).toISOString(),
-        description: 'Industry leaders share their insights on AI developments, breakthrough technologies, and the transformative impact on various sectors...',
-        tags: ['AI', 'Medium', 'Future Tech']
-      },
-      {
-        id: 'medium-fallback-2',
-        title: 'Machine Learning in Production: Best Practices and Common Pitfalls',
-        url: 'https://medium.com/towards-data-science/ml-production-guide',
-        coverImage: 'https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=800&h=400&fit=crop',
-        createdAt: new Date(Date.now() - 1000 * 60 * 60 * 6).toISOString(),
-        description: 'A comprehensive guide to deploying machine learning models in production environments, covering scaling, monitoring, and maintenance...',
-        tags: ['Machine Learning', 'Medium', 'Production']
-      },
-      {
-        id: 'medium-fallback-3',
-        title: 'Deep Learning Breakthrough: New Architecture Achieves Human-Level Performance',
-        url: 'https://medium.com/towards-ai/deep-learning-breakthrough',
-        coverImage: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&h=400&fit=crop',
-        createdAt: new Date(Date.now() - 1000 * 60 * 60 * 12).toISOString(),
-        description: 'Researchers unveil a revolutionary neural network architecture that demonstrates unprecedented performance across multiple AI benchmarks...',
-        tags: ['Deep Learning', 'Medium', 'Research']
-      },
-      {
-        id: 'medium-fallback-4',
-        title: 'Natural Language Processing: Understanding Context in AI Systems',
-        url: 'https://medium.com/analytics-vidhya/nlp-context-understanding',
-        coverImage: 'https://images.unsplash.com/photo-1562813733-b31f71025d54?w=800&h=400&fit=crop',
-        createdAt: new Date(Date.now() - 1000 * 60 * 60 * 18).toISOString(),
-        description: 'Exploring how modern NLP models process and understand context to generate more human-like responses and interactions...',
-        tags: ['NLP', 'Medium', 'Context AI']
-      },
-      {
-        id: 'medium-fallback-5',
-        title: 'Computer Vision Applications: From Healthcare to Autonomous Vehicles',
-        url: 'https://medium.com/computer-vision-news/cv-applications-2025',
-        coverImage: 'https://images.unsplash.com/photo-1559757175-0eb30cd8c063?w=800&h=400&fit=crop',
-        createdAt: new Date(Date.now() - 1000 * 60 * 60 * 24).toISOString(),
-        description: 'Comprehensive overview of computer vision technologies transforming industries from medical imaging to self-driving cars...',
-        tags: ['Computer Vision', 'Medium', 'Applications']
-      },
-      {
-        id: 'medium-fallback-6',
-        title: 'Ethics in AI: Building Responsible Machine Learning Systems',
-        url: 'https://medium.com/ai-ethics/responsible-ai-development',
-        coverImage: 'https://images.unsplash.com/photo-1563720223185-11003d516935?w=800&h=400&fit=crop',
-        createdAt: new Date(Date.now() - 1000 * 60 * 60 * 30).toISOString(),
-        description: 'Discussing the importance of ethical considerations in AI development, bias mitigation, and creating fair AI systems...',
-        tags: ['AI Ethics', 'Medium', 'Responsible AI']
-      },
-      {
-        id: 'medium-fallback-7',
-        title: 'TensorFlow vs PyTorch: A 2025 Comparison for Data Scientists',
-        url: 'https://medium.com/tensorflow/tf-vs-pytorch-2025',
-        coverImage: 'https://images.unsplash.com/photo-1531746790731-6c087fecd65a?w=800&h=400&fit=crop',
-        createdAt: new Date(Date.now() - 1000 * 60 * 60 * 36).toISOString(),
-        description: 'In-depth comparison of the two leading deep learning frameworks, covering performance, ease of use, and ecosystem support...',
-        tags: ['TensorFlow', 'PyTorch', 'Medium']
-      },
-      {
-        id: 'medium-fallback-8',
-        title: 'Data Science in 2025: Trends, Tools, and Career Opportunities',
-        url: 'https://medium.com/data-science-community/ds-trends-2025',
-        coverImage: 'https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=800&h=400&fit=crop',
-        createdAt: new Date(Date.now() - 1000 * 60 * 60 * 42).toISOString(),
-        description: 'Exploring the evolving landscape of data science, emerging tools, and the skills needed for a successful career...',
-        tags: ['Data Science', 'Medium', 'Career']
-      },
-      {
-        id: 'medium-fallback-9',
-        title: 'Reinforcement Learning: Training AI to Make Better Decisions',
-        url: 'https://medium.com/reinforcement-learning/rl-decision-making',
-        coverImage: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&h=400&fit=crop',
-        createdAt: new Date(Date.now() - 1000 * 60 * 60 * 48).toISOString(),
-        description: 'Understanding how reinforcement learning algorithms enable AI systems to learn optimal decision-making strategies...',
-        tags: ['Reinforcement Learning', 'Medium', 'AI Training']
-      },
-      {
-        id: 'medium-fallback-10',
-        title: 'The Rise of Edge AI: Bringing Intelligence to IoT Devices',
-        url: 'https://medium.com/edge-computing/edge-ai-iot-revolution',
-        coverImage: 'https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=800&h=400&fit=crop',
-        createdAt: new Date(Date.now() - 1000 * 60 * 60 * 54).toISOString(),
-        description: 'Exploring how AI is moving from cloud to edge devices, enabling real-time processing and reducing latency...',
-        tags: ['Edge AI', 'IoT', 'Medium']
-      }
-    ];
-    
-  } catch (error) {
-    console.error('Error fetching news:', error);
-    
-    // Return fallback data even on error
-    return [
-      {
-        id: 'medium-error-fallback',
-        title: 'Latest AI and Machine Learning Trends on Medium',
-        url: 'https://medium.com/tag/artificial-intelligence',
-        coverImage: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&h=400&fit=crop',
-        createdAt: new Date().toISOString(),
-        description: 'Stay updated with the latest AI and Machine Learning articles from top writers on Medium...',
-        tags: ['AI', 'Machine Learning', 'Medium']
-      }
-    ];
   }
+
+  return uniqueArticles.slice(0, 9);
 }
 
 export async function GET(req: NextRequest) {
   try {
-    const news = await fetchAINews();
-    return NextResponse.json({ 
-      news,
-      timestamp: new Date().toISOString(),
-      count: news.length,
-      source: 'Medium RSS Feeds'
-    });
+    const news = await fetchMediumNews();
+    return NextResponse.json({ news });
   } catch (error: any) {
-    return NextResponse.json({ 
-      error: error.message,
-      news: [],
-      timestamp: new Date().toISOString()
-    }, { status: 500 });
+    return NextResponse.json({ error: error.message }, { status: 500 });
   }
 }
