@@ -14,7 +14,6 @@ const navigation = [
   { name: "Hackathons", href: "/hackathons" },
   { name: "Events", href: "/events" },
   { name: "Team", href: "/team" },
-  { name: "Builds", href: "/builds" },
   /*{ name: "Contact Us", href: "/contact" },*/
 ]
 
