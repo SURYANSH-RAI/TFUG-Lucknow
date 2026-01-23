@@ -177,7 +177,7 @@ export function Navigation() {
             aria-hidden="true"
           />
           <div className="lg:hidden">
-            <div className="absolute top-full left-0 right-0 z-50 bg-black/75 border-b border-border shadow-lg">
+            <div className={cn("absolute top-full left-0 right-0 z-50 border-b border-border shadow-lg", resolvedTheme === "dark" ? "bg-black/85" : "bg-white/85")}>
               <div className="px-6 py-4 space-y-2">
                 {navigation.map((item) => {
                   const isActive = pathname === item.href
