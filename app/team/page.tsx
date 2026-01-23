@@ -109,7 +109,7 @@ const volunteersByYear = {
       name: "Sahil Sah",
       //role: "Content Creator",
       //expertise: ["Technical Writing", "Social Media"],
-      image: "/Sahil Sah.jpeg",
+      image: "/Sahil Sah.JPEG",
       url: "https://www.linkedin.com/in/sahil-kumar-sah-2867b023a/",
     },
     {
