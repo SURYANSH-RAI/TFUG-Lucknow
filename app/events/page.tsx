@@ -45,7 +45,7 @@ const upcomingEvents = [
      type: "Workshop",
      level: "Beginner",
      status: "",
-     registrationLink: "https://www.commudle.com/communities/tfug-lucknow/events/ai-study-jam-session-2-enhance-development-efficiency-with-agentic-assistants-gemini-cli"
+     registrationLink: "https://www.commudle.com/fill-form/4472"
    },
 ]
 
