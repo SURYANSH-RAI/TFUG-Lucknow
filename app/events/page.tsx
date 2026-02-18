@@ -6,7 +6,63 @@ import { Button } from "@/components/ui/button"
 import { Calendar, Clock, MapPin, Users, ExternalLink, ArrowRight } from "lucide-react"
 import Link from "next/link"
 
+const upcomingEvents = [
+  // {
+  //   id: 10,
+  //   title: "AI Study JAM: Session 4",
+  //   description:
+  //   "A beginner-friendly workshop covering the basics of TensorFlow 2.0, including tensors, operations, and building your first neural network.",
+  //   date: "2026-02-15",
+  //   time: "2:00 PM - 5:00 PM",
+  //   location: "IIT Lucknow Campus",
+  //   attendees: "",
+  //   type: "Workshop",
+  //   level: "Beginner",
+  //   status: "",
+  // },
+  // {
+  //   id: 9,
+  //   title: "AI Study JAM: Session 3",
+  //   description:
+  //     "A beginner-friendly workshop covering the basics of TensorFlow 2.0, including tensors, operations, and building your first neural network.",
+  //   date: "2026-02-15",
+  //   time: "2:00 PM - 5:00 PM",
+  //   location: "IIT Lucknow Campus",
+  //   attendees: "",
+  //   type: "Workshop",
+  //   level: "Beginner",
+  //   status: "",    
+  // },
+   {
+     id: 8,
+     title: "AI Study JAM: Session 2 - Enhance Development Efficiency with Agentic Assistants : (Gemini CLI)",
+     description:
+       "Dive into Agentic Assistants and Gemini CLI to enhance your development efficiency with intelligent automation and real-world workflows.",
+     date: "2026-02-21",
+     time: "6:00 PM - 7:00 PM",
+     location: "Virtual (Commudle)",
+     attendees: "",
+     type: "Workshop",
+     level: "Beginner",
+     status: "",
+     registrationLink: "https://www.commudle.com/communities/tfug-lucknow/events/ai-study-jam-session-2-enhance-development-efficiency-with-agentic-assistants-gemini-cli"
+   },
+]
+
 const pastEvents = [
+    {
+    id: 7,
+    title: "AI Study JAM: Session 1 - Beyond Chatbots: Building Dynamic Experiences with Flutter GenUI SDK",
+    description:
+      "Study Jam Series with an exciting hands-on session exploring how to move beyond traditional chatbots and build truly dynamic, AI-powered user experiences using the Flutter GenUI SDK.",
+    date: "2026-02-14",
+    time: "6:00 PM - 7:00 PM",
+    location: "Virtual (Commudle)",
+    attendees: "75+",
+    type: "Workshop",
+    level: "Beginner",
+    status: "completed",    
+  },
   {
     id: 6,
     title: "AI Agent Arsenal: Building Powerful Tools with ADK: Pre-Hackathon Session 4 (Study Jam)",
@@ -233,6 +289,11 @@ export default function EventsPage() {
             <p className="mt-6 text-lg leading-8 text-muted-foreground text-pretty">
               Don't miss out on these exciting learning opportunities coming up in the next few months.
             </p>
+          </div>
+          <div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-8 sm:mt-20 lg:mx-0 lg:max-w-none lg:grid-cols-3">
+            {upcomingEvents.map((event) => (
+              <EventCard key={event.id} event={event} />
+            ))}
           </div>
         </div>
       </section>

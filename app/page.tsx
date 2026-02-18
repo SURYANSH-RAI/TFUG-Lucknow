@@ -100,7 +100,7 @@ export default function HomePage() {
                 <span className="sr-only">LinkedIn</span>
               </Link>              
               <Link
-                href="https://discord.com/channels/1165604190475792434/1165604190475792436"
+                href="https://www.commudle.com/communities/tfug-lucknow"
                 className="text-muted-foreground hover:text-foreground transition-colors cursor-interactive hover:scale-110 transform duration-200"
               >
                 {/* Commudle SVG icon, monochrome using currentColor */}

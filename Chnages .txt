@@ -1,0 +1,150 @@
+If you need to add upcoming hackathons > put the given code inside => /app/hackathons/page.tsx
+    const upcomingHackathons = [
+  {
+    id: 1,
+    title: "Lucknow AI Hackathon 2025",
+    description:
+      "Our inaugural hackathon focused on building AI solutions for smart city initiatives and urban challenges.",
+    date: "2025-11-06",
+    endDate: "2025-11-06",
+    location: "Multi-Venue",
+    duration: "6 hours",
+    participants: "250+",
+    prizePool: "₹1,00,000",
+    status: "",
+    themes: ["HealthTech", "FinTech", "Cyber Security", "EduTech", "AgriTech"],
+    rulesLink: "https://example.com/lucknow-ai-hackathon-rules",
+    winners: [
+      { position: "1st", team: "SmartTraffic AI", prize: "₹50,000" },
+      { position: "2nd", team: "EcoWaste Solutions", prize: "₹30,000" },
+      { position: "3rd", team: "Energy Optimizer", prize: "₹20,000" },
+    ],
+  },
+    ]
+
+&&
+
+{/* Upcoming Hackathons */}
+      <section className="py-16 sm:py-24">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="mx-auto max-w-2xl text-center">
+            <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl text-balance">
+              Upcoming Hackathons
+            </h2>
+            <p className="mt-6 text-lg leading-8 text-muted-foreground text-pretty">
+              Get ready for these exciting competitions coming up. Register early to secure your spot!
+            </p>
+          </div>
+          <div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-8 sm:mt-20 lg:mx-0 lg:max-w-none lg:grid-cols-2">
+            {upcomingHackathons.map((hackathon) => (
+              <HackathonCard key={hackathon.id} hackathon={hackathon} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+If you need to add ongoing hackathons > put the given code inside => /app/hackathons/page.tsx
+const ongoingHackathons = [
+  {
+    id: 1,
+    title: "Lucknow AI Hackathon 2025",
+    description:
+      "Our inaugural hackathon focused on building AI solutions for smart city initiatives and urban challenges.",
+    date: "2025-11-06",
+    endDate: "2025-11-06",
+    location: "Multi-Venue",
+    duration: "6 hours",
+    participants: "250+",
+    prizePool: "₹1,00,000",
+    status: "ongoing",
+    themes: ["Smart City", "Transportation", "Waste Management", "Energy"],
+    winners: [
+      { position: "1st", team: "SmartTraffic AI", prize: "₹50,000" },
+      { position: "2nd", team: "EcoWaste Solutions", prize: "₹30,000" },
+      { position: "3rd", team: "Energy Optimizer", prize: "₹20,000" },
+    ],
+    rulesLink: "https://example.com/lucknow-ai-hackathon-rules",
+  }
+]
+
+We can add role and expertise of a specific person to volunteer card by adding this code to their profile description card
+    role: "Technical Mentor",
+    expertise: ["Code Review", "Mentoring"],
+and this code where volunteer and team related functions are defined >> subtitle: volunteer.role,
+so that it look likes:
+                        image: volunteer.image || "/placeholder.svg",
+                        title: volunteer.name,
+                        subtitle: volunteer.role,
+                        handle: `@${volunteer.name.toLowerCase().replace(/\s+/g, '')}`,
+
+We can add organizers by adding the code given inside coreTeam card
+    {
+    id: 2,
+    name: "Aaditya Ura",
+    role: "Technical Lead",
+    bio: "Senior Data Scientist specializing in NLP and MLOps. PhD in Computer Science from IIT Kanpur. Loves mentoring aspiring AI practitioners.",
+    image: "/professional-data-scientist.png",
+    expertise: ["NLP", "MLOps", "Research", "Mentoring"],
+    social: {
+      github: "arjungupta",
+      linkedin: "arjun-gupta-ds",
+      twitter: "arjun_nlp",
+      email: "arjun@tfuglucknow.org",
+    },
+  },
+  {
+    id: 3,
+    name: "Abhishek Sahu",
+    role: "Events Coordinator",
+    bio: "Product Manager with expertise in AI/ML product development. Experienced in organizing tech events and building developer communities.",
+    image: "/professional-woman-product-manager.png",
+    expertise: ["Product Management", "Event Planning", "AI Strategy"],
+    social: {
+      github: "snehaverma",
+      linkedin: "sneha-verma-pm",
+      email: "sneha@tfuglucknow.org",
+    },
+  },
+
+If you need to add upcoming events > put the given code inside => /app/events/page.tsx
+      const upcomingEvents = [
+    { 
+     id: 1,
+     title: "AI Day",
+     description:
+       "A beginner-friendly event focused on AI, featuring sessions for all levels and hands-on offline experiences.",
+     date: "",
+     time: "TBA",
+     location: "TBA",
+     attendees: 0,
+     maxAttendees: 0,
+     type: "Offline",
+     level: "Sessions",
+     tags: [ "All Levels"],
+     registrationLink: "",
+     status: "upcoming",
+    },
+  ]
+
+&&
+
+{/* Upcoming Events */}
+      <section className="py-16 sm:py-24">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="mx-auto max-w-2xl text-center">
+            <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl text-balance">
+              Upcoming Events
+            </h2>
+            <p className="mt-6 text-lg leading-8 text-muted-foreground text-pretty">
+              Don't miss out on these exciting learning opportunities coming up in the next few months.
+            </p>
+          </div>
+          <div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-8 sm:mt-20 lg:mx-0 lg:max-w-none lg:grid-cols-3">
+            {upcomingEvents.map((event) => (
+              <EventCard key={event.id} event={event} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+  

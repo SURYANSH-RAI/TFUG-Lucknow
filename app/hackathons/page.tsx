@@ -9,7 +9,7 @@ import { Calendar, Clock, Trophy, Users, Code, ArrowRight, ExternalLink, MapPin 
 import Link from "next/link"
 
 const pastHackathons = [
-   {
+  {
      id: 3,
      title: "Lucknow AI Hackathon 2025",
      description:
@@ -28,7 +28,7 @@ const pastHackathons = [
        { position: "3rd", team: "Samvedna", link: "https://github.com/shikhar1809/Samvedna_GenAi_Hackathon_Main" },
        { position: "Best Innovative Usecase", team: "Chronic AI", link: "https://github.com/prateek-workspace/chronic-ai-agent" },
      ],
-   },
+  },
   {
     id: 2,
     title: "VIVEKA THE INTELLIGENCE : 4.0",
