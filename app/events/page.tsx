@@ -20,20 +20,25 @@ const upcomingEvents = [
   //   level: "Beginner",
   //   status: "",
   // },
-  // {
-  //   id: 9,
-  //   title: "AI Study JAM: Session 3",
-  //   description:
-  //     "A beginner-friendly workshop covering the basics of TensorFlow 2.0, including tensors, operations, and building your first neural network.",
-  //   date: "2026-02-15",
-  //   time: "2:00 PM - 5:00 PM",
-  //   location: "IIT Lucknow Campus",
-  //   attendees: "",
-  //   type: "Workshop",
-  //   level: "Beginner",
-  //   status: "",    
-  // },
    {
+     id: 9,
+     title: "AI Study JAM: Session 3 - AI Agents — From Concept to Creation (Build Your First Agent from Scratch)",
+     description:
+       "This time, we go deeper into the world of AI Agents — From Concept to Creation (Build Your First Agent from Scratch).If you’ve been hearing about AI agents but never actually built one yourself, this session is for you. We will break down the fundamentals and guide you step by step in creating your first working AI agent. No fluff, just practical learning.",
+     date: "2026-02-28",
+     time: "6:00 PM - 7:00 PM",
+     location: "Virtual (Commudle)",
+     //attendees: "",
+     type: "Workshop",
+     level: "Beginner",
+     status: "",
+     registrationLink: "https://www.commudle.com/fill-form/4496"
+   },
+   
+]
+
+const pastEvents = [
+  {
      id: 8,
      title: "AI Study JAM: Session 2 - Enhance Development Efficiency with Agentic Assistants : (Gemini CLI)",
      description:
@@ -41,15 +46,11 @@ const upcomingEvents = [
      date: "2026-02-21",
      time: "6:00 PM - 7:00 PM",
      location: "Virtual (Commudle)",
-     attendees: "",
+     attendees: "75+",
      type: "Workshop",
      level: "Beginner",
-     status: "",
-     registrationLink: "https://www.commudle.com/communities/tfug-lucknow/events/ai-study-jam-session-2-enhance-development-efficiency-with-agentic-assistants-gemini-cli"
+     status: "completed",
    },
-]
-
-const pastEvents = [
     {
     id: 7,
     title: "AI Study JAM: Session 1 - Beyond Chatbots: Building Dynamic Experiences with Flutter GenUI SDK",

@@ -127,10 +127,10 @@ function HackathonCard({ hackathon, isPast = false }: { hackathon: any; isPast?:
             </div>
             <div className="flex items-center space-x-2 text-muted-foreground">
               <Users className="h-4 w-4" />
-              <span>
+              {<span>
                 {hackathon.participants} {isPast ? "participated" : "registered"}
                 {!isPast && hackathon.maxParticipants && ` / ${hackathon.maxParticipants}`}
-              </span>
+              </span>}
             </div>
           </div>
 
