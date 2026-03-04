@@ -7,20 +7,24 @@ import { Calendar, Clock, MapPin, Users, ExternalLink, ArrowRight } from "lucide
 import Link from "next/link"
 
 const upcomingEvents = [
-  // {
-  //   id: 10,
-  //   title: "AI Study JAM: Session 4",
-  //   description:
-  //   "A beginner-friendly workshop covering the basics of TensorFlow 2.0, including tensors, operations, and building your first neural network.",
-  //   date: "2026-02-15",
-  //   time: "2:00 PM - 5:00 PM",
-  //   location: "IIT Lucknow Campus",
-  //   attendees: "",
-  //   type: "Workshop",
-  //   level: "Beginner",
-  //   status: "",
-  // },
    {
+     id: 10,
+     title: "AI Study JAM: Session 4 - Designing Production-Ready AI Agents with Pydantic AI",
+     description:
+     "This time, we move beyond basics and focus on building robust, production-ready AI systems with clarity and structure. Designing Production-Ready AI Agents with Pydantic AI. If you have already explored AI agents and now want to make them reliable, structured, and scalable, this session is for you.",
+     date: "2026-03-07",
+     time: "6:00 PM - 7:00 PM",
+     location: "Virtual (Commudle)",
+     attendees: "",
+     type: "Workshop",
+     level: "Beginner",
+     status: "",
+     registrationLink: "https://www.commudle.com/fill-form/4515"
+   },
+]
+
+const pastEvents = [
+     {
      id: 9,
      title: "AI Study JAM: Session 3 - AI Agents — From Concept to Creation (Build Your First Agent from Scratch)",
      description:
@@ -28,16 +32,11 @@ const upcomingEvents = [
      date: "2026-02-28",
      time: "6:00 PM - 7:00 PM",
      location: "Virtual (Commudle)",
-     //attendees: "",
+     attendees: "70+",
      type: "Workshop",
      level: "Beginner",
-     status: "",
-     registrationLink: "https://www.commudle.com/fill-form/4496"
+     status: "completed",
    },
-   
-]
-
-const pastEvents = [
   {
      id: 8,
      title: "AI Study JAM: Session 2 - Enhance Development Efficiency with Agentic Assistants : (Gemini CLI)",
