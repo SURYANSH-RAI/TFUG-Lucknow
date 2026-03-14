@@ -11,13 +11,36 @@ import { Github, ExternalLink, Star, GitFork, Code, Lightbulb, Users, ArrowRight
 import Link from "next/link"
 import ProjectFilter from "@/components/project-filter"
 
-const featuredProjects = [
+interface Project {
+  id: number
+  title: string
+  description: string
+  image?: string
+  category: string
+  tech: string[]
+  author: {
+    name: string
+    avatar?: string
+  }
+  stats: {
+    stars: number
+    forks: number
+    contributors?: number
+  }
+  links?: {
+    github: string
+    demo: string
+  }
+  status: string
+  featured?: boolean
+}
+
+const featuredProjects: Project[] = [
   {
     id: 1,
-    title: "LucknowTraffic AI",
-    description:
-      "Real-time traffic prediction and optimization system for Lucknow using computer vision and deep learning. Helps reduce congestion and improve traffic flow.",
-    image: "/ai-traffic-management-system.jpg",
+    title: "Nawab AI",
+    description: "Meet Nawab AI — your smart digital guide to Lucknow, built by Lucknow AI Labs.\n\nWhether you're exploring the city's culture, searching for places, or simply looking for quick information, Nawab AI brings the power of artificial intelligence to your fingertips. With a conversational interface and deep local knowledge, it helps you experience Lucknow in a smarter, faster, and more interactive way.",
+    image: "/Nawab_AI.png",
     category: "Computer Vision",
     tech: ["TensorFlow", "OpenCV", "Python", "React", "Node.js"],
     author: {
@@ -86,7 +109,7 @@ const featuredProjects = [
   },
 ]
 
-const communityProjects = [
+const communityProjects: Project[] = [
   {
     id: 4,
     title: "Medical Image Classifier",
@@ -149,7 +172,7 @@ const communityProjects = [
   },
 ]
 
-function ProjectCard({ project, isFeatured = false }: { project: any; isFeatured?: boolean }) {
+function ProjectCard({ project, isFeatured = false }: { project: Project; isFeatured?: boolean }) {
   const getCategoryColor = (category: string) => {
     const colors: { [key: string]: string } = {
       "Computer Vision": "bg-blue-100 text-blue-800 dark:bg-blue-900/20 dark:text-blue-400",
@@ -199,7 +222,7 @@ function ProjectCard({ project, isFeatured = false }: { project: any; isFeatured
             <CardTitle className={isFeatured ? "text-xl" : "text-lg"}>{project.title}</CardTitle>
           </div>
         </div>
-        <CardDescription className="text-sm leading-6">{project.description}</CardDescription>
+        <CardDescription className="text-sm leading-6 whitespace-pre-line">{project.description}</CardDescription>
       </CardHeader>
       <CardContent>
         <div className="space-y-4">

@@ -1,3 +1,6 @@
+"use client"
+
+import { useState } from "react"
 import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/footer"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
@@ -6,51 +9,80 @@ import { Button } from "@/components/ui/button"
 import { Calendar, Clock, MapPin, Users, ExternalLink, ArrowRight } from "lucide-react"
 import Link from "next/link"
 
-const upcomingEvents = [
-   {
-     id: 10,
-     title: "AI Study JAM: Session 4 - Designing Production-Ready AI Agents with Pydantic AI",
-     description:
-     "This time, we move beyond basics and focus on building robust, production-ready AI systems with clarity and structure. Designing Production-Ready AI Agents with Pydantic AI. If you have already explored AI agents and now want to make them reliable, structured, and scalable, this session is for you.",
-     date: "2026-03-07",
-     time: "6:00 PM - 7:00 PM",
-     location: "Virtual (Commudle)",
-     attendees: "",
-     type: "Workshop",
-     level: "Beginner",
-     status: "",
-     registrationLink: "https://www.commudle.com/fill-form/4515"
-   },
+interface Event {
+  id: number
+  title: string
+  description: string
+  date: string
+  time: string
+  location: string
+  attendees?: string
+  maxAttendees?: number
+  type: string
+  level: string
+  status: string
+  registrationLink?: string
+  tags?: string[]
+}
+
+const upcomingEvents: Event[] = [
+  //{
+  //  id: 11,
+  //  title: "",
+  //  description:
+  //  "",
+  //  date: "2026-03-07",
+  //  time: "6:00 PM - 7:00 PM",
+  //  location: "Virtual (Commudle)",
+  //  attendees: "",
+  //  type: "Workshop",
+  //  level: "Beginner",
+  //  status: "completed",
+  //  registrationLink: ""
+  //  },
 ]
 
-const pastEvents = [
-     {
-     id: 9,
-     title: "AI Study JAM: Session 3 - AI Agents — From Concept to Creation (Build Your First Agent from Scratch)",
-     description:
-       "This time, we go deeper into the world of AI Agents — From Concept to Creation (Build Your First Agent from Scratch).If you’ve been hearing about AI agents but never actually built one yourself, this session is for you. We will break down the fundamentals and guide you step by step in creating your first working AI agent. No fluff, just practical learning.",
-     date: "2026-02-28",
-     time: "6:00 PM - 7:00 PM",
-     location: "Virtual (Commudle)",
-     attendees: "70+",
-     type: "Workshop",
-     level: "Beginner",
-     status: "completed",
-   },
+const pastEvents: Event[] = [
   {
-     id: 8,
-     title: "AI Study JAM: Session 2 - Enhance Development Efficiency with Agentic Assistants : (Gemini CLI)",
-     description:
-       "Dive into Agentic Assistants and Gemini CLI to enhance your development efficiency with intelligent automation and real-world workflows.",
-     date: "2026-02-21",
-     time: "6:00 PM - 7:00 PM",
-     location: "Virtual (Commudle)",
-     attendees: "75+",
-     type: "Workshop",
-     level: "Beginner",
-     status: "completed",
-   },
+    id: 10,
+    title: "AI Study JAM: Session 4 - Designing Production-Ready AI Agents with Pydantic AI",
+    description:
+    "This time, we move beyond basics and focus on building robust, production-ready AI systems with clarity and structure. Designing Production-Ready AI Agents with Pydantic AI. If you have already explored AI agents and now want to make them reliable, structured, and scalable, this session is for you.",
+    date: "2026-03-07",
+    time: "6:00 PM - 7:00 PM",
+    location: "Virtual (Commudle)",
+    attendees: "",
+    type: "Workshop",
+    level: "Beginner",
+    status: "completed",
+    },
     {
+    id: 9,
+    title: "AI Study JAM: Session 3 - AI Agents — From Concept to Creation (Build Your First Agent from Scratch)",
+    description:
+      "This time, we go deeper into the world of AI Agents — From Concept to Creation (Build Your First Agent from Scratch).If you’ve been hearing about AI agents but never actually built one yourself, this session is for you. We will break down the fundamentals and guide you step by step in creating your first working AI agent. No fluff, just practical learning.",
+    date: "2026-02-28",
+    time: "6:00 PM - 7:00 PM",
+    location: "Virtual (Commudle)",
+    attendees: "70+",
+    type: "Workshop",
+    level: "Beginner",
+    status: "completed",
+   },
+   {
+    id: 8,
+    title: "AI Study JAM: Session 2 - Enhance Development Efficiency with Agentic Assistants : (Gemini CLI)",
+    description:
+      "Dive into Agentic Assistants and Gemini CLI to enhance your development efficiency with intelligent automation and real-world workflows.",
+    date: "2026-02-21",
+    time: "6:00 PM - 7:00 PM",
+    location: "Virtual (Commudle)",
+    attendees: "75+",
+    type: "Workshop",
+    level: "Beginner",
+    status: "completed",
+   },
+   {
     id: 7,
     title: "AI Study JAM: Session 1 - Beyond Chatbots: Building Dynamic Experiences with Flutter GenUI SDK",
     description:
@@ -76,7 +108,6 @@ const pastEvents = [
     level: "All Levels",
     status: "completed",
   },
-
   {
     id: 5,
     title: "Getting an edge with custom tuned model Gemma: Pre Hackathon session 3 (Study Jam)",
@@ -90,7 +121,6 @@ const pastEvents = [
     level: "All Levels",
     status: "completed",
   },
-
   {
     id: 4,
     title: "Building production application using Gemini CLI : Pre Hackathon session 2 (Study Jam)",
@@ -144,7 +174,9 @@ const pastEvents = [
   },
 ]
 
-function EventCard({ event, isPast = false }: { event: any; isPast?: boolean }) {
+function EventCard({ event, isPast = false }: { event: Event; isPast?: boolean }) {
+  const [isExpanded, setIsExpanded] = useState(false)
+
   const getTypeColor = (type: string) => {
     switch (type) {
       case "Workshop":
@@ -194,7 +226,27 @@ function EventCard({ event, isPast = false }: { event: any; isPast?: boolean }) 
             <CardTitle className="text-xl">{event.title}</CardTitle>
           </div>
         </div>
-        <CardDescription className="text-sm leading-6">{event.description}</CardDescription>
+        <CardDescription className="text-sm leading-6">
+          {(() => {
+            const maxLength = 175
+            const isLong = event.description.length > maxLength
+            const text = isLong && !isExpanded ? `${event.description.slice(0, maxLength).trimEnd()}…` : event.description
+            return (
+              <>
+                {text}
+                {isPast && isLong ? (
+                  <button
+                    className="ml-2 text-sm font-medium text-primary hover:underline"
+                    onClick={() => setIsExpanded((prev) => !prev)}
+                    type="button"
+                  >
+                    {isExpanded ? "Show less" : "Show more"}
+                  </button>
+                ) : null}
+              </>
+            )
+          })()}
+        </CardDescription>
       </CardHeader>
       <CardContent className="mt-auto">
         <div className="space-y-3">
